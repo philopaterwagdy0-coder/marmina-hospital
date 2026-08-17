@@ -1,5 +1,3 @@
-// بيانات مواعيد عيادات مستشفى مارمينا - طاحونة البابا كيرلس
-
 function displayCurrentDate() {
     const days = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
     const months = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'];
@@ -18,7 +16,7 @@ function displayCurrentDate() {
 const WHATSAPP_NUMBER = "201128081867";
 
 const departments = [
-    { id: 1, name: "الجراحة العامة", icon: "", category: "الجراحة", doctors: [
+    { id: 1, name: "الجراحة العامة", icon: "🔪", category: "الجراحة", doctors: [
         { name: "د/ جورج وليم", time: "1:00 PM", status: "present" },
         { name: "د/ استافرو باولو", time: "2:00 PM", status: "present" },
         { name: "د/ شنودة سمر", time: "4:00 PM", status: "present" },
@@ -41,7 +39,7 @@ const departments = [
         { name: "د/ مارك موريس", time: "4:00 PM", status: "present" },
         { name: "د/ أمير خيري", time: "-", status: "absent" }
     ]},
-    { id: 5, name: "أسنان", icon: "🦷", category: "الأسنان", doctors: [
+    { id: 5, name: "أسنان", icon: "", category: "الأسنان", doctors: [
         { name: "د/ جورج نادر", time: "9:00 AM", status: "present", specialty: "أخصائي طب وجراحة الفم والأسنان" },
         { name: "د/ مريم عبيد", time: "4:00 PM", status: "present" }
     ]},
@@ -49,16 +47,16 @@ const departments = [
         { name: "طلعت فؤاد", time: "3:00 PM", status: "present" },
         { name: "يوسف فتحي", time: "-", status: "absent" }
     ]},
-    { id: 7, name: "نساء وتوليد", icon: "", category: "النساء", doctors: [
+    { id: 7, name: "نساء وتوليد", icon: "🤰", category: "النساء", doctors: [
         { name: "د/ محب بطرس", time: "1:00 PM", status: "present" },
         { name: "د/ إيهاب تانان", time: "-", status: "absent" }
     ]},
-    { id: 8, name: "الأشعة والموجات الصوتية", icon: "🩻", category: "الأشعة", doctors: [
+    { id: 8, name: "الأشعة والموجات الصوتية", icon: "", category: "الأشعة", doctors: [
         { name: "د/ كريستينا فوزي", time: "11:00 AM", status: "present" },
         { name: "د/ منال حليم", time: "6:00 PM", status: "present" },
         { name: "د/ رامي رأفت", time: "-", status: "present", specialty: "أخصائي الموجات الصوتية والأشعة التشخيصية" }
     ]},
-    { id: 9, name: "باطنة عامة", icon: "", category: "الباطنة", doctors: [
+    { id: 9, name: "باطنة عامة", icon: "🩺", category: "الباطنة", doctors: [
         { name: "د/ رقيق يوسف", time: "3:00 PM", status: "present" }
     ]},
     { id: 10, name: "باطنة صدر", icon: "🫁", category: "الباطنة", doctors: [
@@ -67,29 +65,29 @@ const departments = [
     { id: 11, name: "أطفال", icon: "👶", category: "الأطفال", doctors: [
         { name: "د/ يوسف سعد", time: "1:30 PM", status: "present" }
     ]},
-    { id: 12, name: "أمراض كلى", icon: "", category: "الباطنة", doctors: [
+    { id: 12, name: "أمراض كلى", icon: "🫘", category: "الباطنة", doctors: [
         { name: "د/ منال مهنى", time: "10:00 AM", status: "present" }
     ]},
     { id: 13, name: "مخ وأعصاب", icon: "🧠", category: "الباطنة", doctors: [
         { name: "د/ أشرف ماهر", time: "6:00 PM", status: "present" }
     ]},
-    { id: 14, name: "رمد", icon: "️", category: "أخرى", doctors: [
+    { id: 14, name: "رمد", icon: "👁️", category: "أخرى", doctors: [
         { name: "د/ بيتر وهيب", time: "4:00 PM", status: "present" }
     ]},
-    { id: 15, name: "باطنة وكلى", icon: "🩺", category: "الباطنة", doctors: [
+    { id: 15, name: "باطنة وكلى", icon: "", category: "الباطنة", doctors: [
         { name: "د/ ميشيل عزيز", time: "10:00 AM", status: "present" }
     ]},
     { id: 16, name: "جلدية وتناسلية", icon: "🧴", category: "الجلدية", doctors: [
         { name: "د/ ايناس فايز", time: "10:00 AM", status: "present", specialty: "استشاري الأمراض الجلدية والتناسلية" },
         { name: "د/ نيفين يعقوب", time: "10:00 AM", status: "present" }
     ]},
-    { id: 17, name: "سكر وغدد صماء", icon: "💉", category: "الباطنة", doctors: [
+    { id: 17, name: "سكر وغدد صماء", icon: "", category: "الباطنة", doctors: [
         { name: "د/ ماجد حبيب", time: "10:00 AM", status: "present" }
     ], note: "20 حالة فقط" },
-    { id: 18, name: "جهاز هضمي وكبد", icon: "", category: "الباطنة", doctors: [
+    { id: 18, name: "جهاز هضمي وكبد", icon: "🫀", category: "الباطنة", doctors: [
         { name: "د/ رامي عدلي", time: "11:00 AM", status: "present" }
     ]},
-    { id: 19, name: "تنمية مهارات", icon: "🧩", category: "أخرى", doctors: [
+    { id: 19, name: "تنمية مهارات", icon: "", category: "أخرى", doctors: [
         { name: "ا/ مريم عيده", time: "12:00 PM", status: "present" }
     ]},
     { id: 20, name: "أنف وأذن وحنجرة", icon: "👂", category: "أخرى", doctors: [
@@ -98,12 +96,12 @@ const departments = [
     { id: 21, name: "استشارات تغذية", icon: "🥗", category: "أخرى", doctors: [
         { name: "ا/ نانسي مبروك", time: "6:00 PM", status: "present" }
     ]},
-    { id: 22, name: "جراحة الأورام", icon: "🎗️", category: "الأورام", doctors: [
+    { id: 22, name: "جراحة الأورام", icon: "️", category: "الأورام", doctors: [
         { name: "د/ فادي رشاد", time: "-", status: "present", specialty: "مدرس مساعد جراحة الأورام - المعهد القومي للأورام - جامعة القاهرة" }
     ]}
 ];
 
-const reviews = [
+const defaultReviews = [
     { id: 1, name: "أحمد محمد", rating: 5, text: "مستشفى ممتاز جداً، الأطباء محترفين والخدمة راقية. أنصح به بشدة!", date: "2026-08-15", type: "positive" },
     { id: 2, name: "فاطمة حسن", rating: 5, text: "تجربة رائعة! الدكتورة كانت متعاونة جداً والتمريض محترم. شكراً مارمينا", date: "2026-08-14", type: "positive" },
     { id: 3, name: "مينا جورج", rating: 5, text: "أفضل مستشفى في المنطقة. الأجهزة حديثة والنظافة ممتازة", date: "2026-08-13", type: "positive" },
@@ -121,8 +119,20 @@ const reviews = [
     { id: 15, name: "كيرلس وجيه", rating: 5, text: "أنصح به بشدة! خدمة ممتازة وأسعار مناسبة. الله يبارك فيكم", date: "2026-08-01", type: "positive" }
 ];
 
+let reviews = [...defaultReviews];
+
+const savedReviews = localStorage.getItem('marmina_reviews');
+if (savedReviews) {
+    const parsedReviews = JSON.parse(savedReviews);
+    parsedReviews.forEach(review => {
+        if (!reviews.find(r => r.id === review.id)) {
+            reviews.unshift(review);
+        }
+    });
+}
+
 function bookViaWhatsApp(doctorName, departmentName) {
-    const message = `السلام عليكم 🙏\nأريد الاستفسار وحجز موعد مع:\n👨⚕️ ${doctorName}\n قسم: ${departmentName}\n\nمستشفى مارمينا - طاحونة البابا كيرلس`;
+    const message = `السلام عليكم 🙏\nأريد الاستفسار وحجز موعد مع:\n👨‍⚕️ ${doctorName}\n🏥 قسم: ${departmentName}\n\nمستشفى مارمينا - طاحونة البابا كيرلس`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
@@ -293,7 +303,7 @@ function setupStarRating() {
             }
 
             const newReview = {
-                id: reviews.length + 1,
+                id: Date.now(),
                 name: name,
                 rating: selectedRating,
                 text: text,
@@ -302,13 +312,18 @@ function setupStarRating() {
             };
 
             reviews.unshift(newReview);
+            
+            const currentSaved = JSON.parse(localStorage.getItem('marmina_reviews') || '[]');
+            currentSaved.unshift(newReview);
+            localStorage.setItem('marmina_reviews', JSON.stringify(currentSaved));
+            
             renderReviews();
             
             form.reset();
             stars.forEach(s => s.classList.remove('active'));
             selectedRating = 0;
             
-            alert('✅ شكراً لتقييمك!');
+            alert('✅ شكراً لتقييمك! تم حفظه بنجاح');
         });
     }
 }
