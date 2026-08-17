@@ -12,7 +12,7 @@ function displayCurrentDate() {
     
     const dateElement = document.getElementById('currentDate');
     if (dateElement) {
-        dateElement.textContent = ` ${dayName} ${day} ${month} ${year}`;
+        dateElement.textContent = `📅 ${dayName} ${day} ${month} ${year}`;
     }
 }
 
@@ -24,7 +24,7 @@ const departments = [
     {
         id: 1,
         name: "الجراحة العامة",
-        icon: "",
+        icon: "🔪",
         doctors: [
             { name: "د/ جورج وليم", time: "1:00 PM", status: "present" },
             { name: "د/ استافرو باولو", time: "2:00 PM", status: "present" },
@@ -77,7 +77,7 @@ const departments = [
     {
         id: 6,
         name: "المسالك البولية",
-        icon: "🫘",
+        icon: "",
         doctors: [
             { name: "طلعت فؤاد", time: "3:00 PM", status: "present" },
             { name: "يوسف فتحي", time: "-", status: "absent" }
@@ -95,7 +95,7 @@ const departments = [
     {
         id: 8,
         name: "الأشعة والموجات الصوتية",
-        icon: "",
+        icon: "🩻",
         doctors: [
             { name: "د/ كريستينا فوزي", time: "11:00 AM", status: "present" },
             { name: "د/ منال حليم", time: "6:00 PM", status: "present" },
@@ -105,7 +105,7 @@ const departments = [
     {
         id: 9,
         name: "باطنة عامة",
-        icon: "🩺",
+        icon: "",
         doctors: [
             { name: "د/ رقيق يوسف", time: "3:00 PM", status: "present" }
         ]
@@ -153,7 +153,7 @@ const departments = [
     {
         id: 15,
         name: "باطنة وكلى",
-        icon: "🩺",
+        icon: "",
         doctors: [
             { name: "د/ ميشيل عزيز", time: "10:00 AM", status: "present" }
         ]
@@ -161,7 +161,7 @@ const departments = [
     {
         id: 16,
         name: "جلدية وتناسلية",
-        icon: "🧴",
+        icon: "",
         doctors: [
             { name: "د/ ايناس فايز", time: "10:00 AM", status: "present", specialty: "استشاري الأمراض الجلدية والتناسلية" },
             { name: "د/ نيفين يعقوب", time: "10:00 AM", status: "present" }
@@ -170,7 +170,7 @@ const departments = [
     {
         id: 17,
         name: "سكر وغدد صماء",
-        icon: "",
+        icon: "💉",
         doctors: [
             { name: "د/ ماجد حبيب", time: "10:00 AM", status: "present" }
         ],
@@ -220,7 +220,7 @@ const departments = [
 
 // دالة الحجز عبر واتساب
 function bookViaWhatsApp(doctorName, departmentName) {
-    const message = `السلام عليكم 🙏\nأريد الاستفسار وحجز موعد مع:\n‍⚕️ ${doctorName}\n🏥 قسم: ${departmentName}\n\nمستشفى مارمينا - طاحونة البابا كيرلس`;
+    const message = `السلام عليكم 🙏\nأريد الاستفسار وحجز موعد مع:\n👨‍⚕️ ${doctorName}\n🏥 قسم: ${departmentName}\n\nمستشفى مارمينا - طاحونة البابا كيرلس`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
@@ -250,7 +250,7 @@ function renderDepartments() {
                     <div class="doctor-info">
                         <span class="doctor-name">${doc.name}</span>
                         ${doc.specialty ? `<span class="doctor-specialty">${doc.specialty}</span>` : ''}
-                        <span class="doctor-time">🕐 ${doc.time}</span>
+                        <span class="doctor-time"> ${doc.time}</span>
                     </div>
                     <div class="doctor-actions">
                         <span class="status ${statusClass}">${statusText}</span>
