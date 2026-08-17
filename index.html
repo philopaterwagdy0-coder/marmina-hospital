@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <!-- الهيدر - البانر -->
+    <!-- الهيدر -->
     <header class="main-header">
         <div class="hamburger" id="hamburger">
             <span></span>
@@ -17,7 +17,7 @@
             <span></span>
         </div>
         <div class="logo">
-            <span class="logo-icon">⛪</span>
+            <span class="logo-icon"></span>
             <div>
                 <div>مستشفى مارمينا</div>
                 <small>طاحونة البابا كيرلس</small>
@@ -38,12 +38,12 @@
         <h2>القائمة</h2>
         <a href="#home" class="menu-link">🏠 الرئيسية</a>
         <a href="#about" class="menu-link">🏥 من نحن</a>
-        <a href="#schedule" class="menu-link">📅 مواعيد العيادات</a>
+        <a href="#schedule" class="menu-link"> مواعيد العيادات</a>
         <a href="#faq" class="menu-link">❓ الأسئلة الشائعة</a>
         <a href="#contact" class="menu-link">📞 تواصل معنا</a>
     </div>
 
-    <!-- القسم الرئيسي - البانر -->
+    <!-- البانر الرئيسي -->
     <section id="home" class="hero-banner">
         <div class="banner-content">
             <div class="banner-right">
@@ -63,7 +63,7 @@
 
                 <div class="contact-info-banner">
                     <div class="contact-item">
-                        <span class="icon"></span>
+                        <span class="icon">📞</span>
                         <div>
                             <span>للحجز والاستعلام</span>
                             <a href="tel:01128081867">01128081867</a>
@@ -79,14 +79,12 @@
                 </div>
 
                 <div class="location-banner">
-                    <span></span>
+                    <span>📍</span>
                     <span>مستشفى مارمينا - طاحونة البابا كيرلس</span>
                 </div>
             </div>
             <div class="banner-left">
-                <div class="doctor-image-placeholder">
-                    <div class="doctor-silhouette"></div>
-                </div>
+                <img src="pic.png" alt="مستشفى مارمينا" class="banner-image">
             </div>
         </div>
     </section>
@@ -102,28 +100,28 @@
                 <div class="services-grid">
                     <h3>خدماتنا</h3>
                     <div class="service-item">
-                        <span class="service-icon"></span>
+                        <span class="service-icon">🏥</span>
                         <div>
                             <h4>رعاية طبية متكاملة</h4>
                             <p>نخبة من الأطباء المتخصصين في مختلف المجالات الطبية</p>
                         </div>
                     </div>
                     <div class="service-item">
-                        <span class="service-icon"></span>
+                        <span class="service-icon">️</span>
                         <div>
                             <h4>أجهزة حديثة</h4>
                             <p>أحدث الأجهزة الطبية والتشخيصية لضمان أفضل رعاية</p>
                         </div>
                     </div>
                     <div class="service-item">
-                        <span class="service-icon">‍⚕️</span>
+                        <span class="service-icon">👨‍⚕️</span>
                         <div>
                             <h4>طاقم طبي متميز</h4>
                             <p>أطباء واستشاريون على أعلى مستوى من الخبرة والكفاءة</p>
                         </div>
                     </div>
                     <div class="service-item">
-                        <span class="service-icon">🚨</span>
+                        <span class="service-icon"></span>
                         <div>
                             <h4>طوارئ 24 ساعة</h4>
                             <p>خدمة طوارئ على مدار الساعة لاستقبال جميع الحالات</p>
@@ -171,9 +169,7 @@
             <button class="filter-btn" data-filter="أخرى">أخرى</button>
         </div>
 
-        <div id="departments-grid" class="schedule-grid">
-            <!-- سيتم ملؤه بواسطة JavaScript -->
-        </div>
+        <div id="departments-grid" class="schedule-grid"></div>
     </section>
 
     <!-- قسم الأسئلة الشائعة -->
@@ -223,38 +219,87 @@
             </div>
             <div class="faq-item">
                 <div class="faq-question">
-                    <span> أين يقع المستشفى؟</span>
+                    <span>📍 أين يقع المستشفى؟</span>
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>المستشفى位于 في طاحونة البابا كيرلس - القاهرة</p>
+                    <p>المستشفى يقع في طاحونة البابا كيرلس - القاهرة</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- قسم التقييمات -->
+    <section id="reviews" class="container section">
+        <h2>⭐ آراء عملائنا</h2>
+        <p class="reviews-subtitle">ثقة عملائنا هي أغلى ما نملك</p>
+        
+        <div class="reviews-stats">
+            <div class="stat-box">
+                <div class="stat-number">4.7</div>
+                <div class="stat-stars">⭐⭐⭐⭐⭐</div>
+                <div class="stat-label">متوسط التقييم</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">+500</div>
+                <div class="stat-label">عميل سعيد</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">نسبة الرضا</div>
+            </div>
+        </div>
+
+        <div class="reviews-filter">
+            <button class="review-filter-btn active" data-filter="all">كل التقييمات</button>
+            <button class="review-filter-btn" data-filter="positive">الإيجابية</button>
+            <button class="review-filter-btn" data-filter="negative">السلبية</button>
+        </div>
+
+        <div id="reviews-grid" class="reviews-grid"></div>
+
+        <div class="add-review-section">
+            <h3>شاركنا رأيك</h3>
+            <form id="reviewForm" class="review-form">
+                <input type="text" id="reviewerName" placeholder="الاسم" required>
+                <div class="rating-input">
+                    <span>التقييم:</span>
+                    <div class="stars-input">
+                        <span class="star" data-rating="1">⭐</span>
+                        <span class="star" data-rating="2">⭐</span>
+                        <span class="star" data-rating="3">⭐</span>
+                        <span class="star" data-rating="4">⭐</span>
+                        <span class="star" data-rating="5">⭐</span>
+                    </div>
+                </div>
+                <textarea id="reviewText" placeholder="اكتب تقييمك هنا..." rows="4" required></textarea>
+                <button type="submit" class="btn-submit-review">إرسال التقييم</button>
+            </form>
+        </div>
+    </section>
+
     <!-- التواصل -->
     <section id="contact" class="container section bg-light">
-        <h2>تواصل معنا</h2>
+        <h2>📞 تواصل معنا</h2>
         <div class="contact-info">
             <div class="contact-card">
-                <div class="contact-icon"></div>
+                <div class="contact-icon">📞</div>
                 <h3>للحجز والاستعلام</h3>
                 <a href="tel:01128081867" class="phone-number">01128081867</a>
             </div>
             <div class="contact-card">
-                <div class="contact-icon"></div>
+                <div class="contact-icon">📧</div>
                 <h3>البريد الإلكتروني</h3>
                 <a href="mailto:minaclinic18@gmail.com" class="email-link">minaclinic18@gmail.com</a>
             </div>
             <div class="contact-card">
-                <div class="contact-icon"></div>
+                <div class="contact-icon">📍</div>
                 <h3>الموقع</h3>
                 <p>طاحونة البابا كيرلس</p>
                 <a href="https://www.google.com/maps/place/X6WV+VJ+Old+Cairo,+00202" 
                    target="_blank" 
                    class="location-btn">
-                    ️ افتح الموقع على الخريطة
+                    🗺️ افتح الموقع على الخريطة
                 </a>
             </div>
             <div class="contact-card">
