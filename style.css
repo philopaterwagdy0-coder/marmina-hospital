@@ -375,3 +375,35 @@ footer {
         max-width: 300px;
     }
 }
+/* زرار الحجز عبر واتساب */
+.doctor-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.btn-whatsapp {
+    background: #25D366;
+    color: white;
+    border: none;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: 'Tajawal', sans-serif;
+}
+
+.btn-whatsapp:hover {
+    background: #128C7E;
+    transform: scale(1.05);
+}
+
+.doctor-specialty {
+    color: #666;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-top: 0.2rem;
+}
