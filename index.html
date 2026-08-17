@@ -17,7 +17,7 @@
             <span></span>
         </div>
         <div class="logo">
-            <span class="logo-icon"></span>
+            <span class="logo-icon">⛪</span>
             <div>
                 <div>مستشفى مارمينا</div>
                 <small>طاحونة البابا كيرلس</small>
@@ -37,22 +37,17 @@
         <div class="menu-close" id="menuClose">✕</div>
         <h2>القائمة</h2>
         <a href="#home" class="menu-link">🏠 الرئيسية</a>
-        <a href="#about" class="menu-link">🏥 من نحن</a>
-        <a href="#schedule" class="menu-link"> مواعيد العيادات</a>
+        <a href="#about" class="menu-link"> من نحن</a>
+        <a href="#schedule" class="menu-link">📅 مواعيد العيادات</a>
         <a href="#faq" class="menu-link">❓ الأسئلة الشائعة</a>
         <a href="#contact" class="menu-link">📞 تواصل معنا</a>
     </div>
 
-    <!-- البانر الرئيسي -->
+    <!-- البانر الرئيسي - صورة خلفية كاملة -->
     <section id="home" class="hero-banner">
+        <div class="hero-overlay"></div>
         <div class="banner-content">
             <div class="banner-right">
-                <div class="logo-large">
-                    <svg viewBox="0 0 100 100" class="logo-svg">
-                        <path d="M50 10 C30 10, 20 30, 20 50 C20 70, 30 90, 50 90 C70 90, 80 70, 80 50 C80 30, 70 10, 50 10 Z M50 25 C60 25, 65 35, 65 50 C65 65, 60 75, 50 75 C40 75, 35 65, 35 50 C35 35, 40 25, 50 25 Z" fill="#1a5f7a"/>
-                        <circle cx="50" cy="50" r="15" fill="#2d9da8"/>
-                    </svg>
-                </div>
                 <h1>مستشفى مارمينا</h1>
                 <h2>طاحونة البابا كيرلس</h2>
                 
@@ -70,7 +65,7 @@
                         </div>
                     </div>
                     <div class="contact-item">
-                        <span class="icon">🕐</span>
+                        <span class="icon"></span>
                         <div>
                             <span>نعمل على مدار الساعة</span>
                             <span class="badge-24">24/7</span>
@@ -82,9 +77,6 @@
                     <span>📍</span>
                     <span>مستشفى مارمينا - طاحونة البابا كيرلس</span>
                 </div>
-            </div>
-            <div class="banner-left">
-                <img src="pic.png" alt="مستشفى مارمينا" class="banner-image">
             </div>
         </div>
     </section>
@@ -107,7 +99,7 @@
                         </div>
                     </div>
                     <div class="service-item">
-                        <span class="service-icon">️</span>
+                        <span class="service-icon"></span>
                         <div>
                             <h4>أجهزة حديثة</h4>
                             <p>أحدث الأجهزة الطبية والتشخيصية لضمان أفضل رعاية</p>
@@ -128,7 +120,7 @@
                         </div>
                     </div>
                     <div class="service-item">
-                        <span class="service-icon">🧪</span>
+                        <span class="service-icon"></span>
                         <div>
                             <h4>معمل وأشعة</h4>
                             <p>معمل تحليل وأشعة تشخيصية بأحدث التقنيات</p>
@@ -151,10 +143,9 @@
         <h2>📅 جدول مواعيد العيادات</h2>
         <p class="schedule-date" id="currentDate"></p>
         <div class="schedule-notice">
-            ⚠️ يرجى التأكد من حضور الطبيب قبل الحضور للعيادة
+            ️ يرجى التأكد من حضور الطبيب قبل الحضور للعيادة
         </div>
 
-        <!-- أزرار الفلترة -->
         <div class="filter-buttons">
             <button class="filter-btn active" data-filter="all">كل الأطباء</button>
             <button class="filter-btn" data-filter="الجراحة">الجراحة</button>
@@ -178,7 +169,7 @@
         <div class="faq-container">
             <div class="faq-item">
                 <div class="faq-question">
-                    <span> ما هي ساعات العمل؟</span>
+                    <span>🕐 ما هي ساعات العمل؟</span>
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
@@ -187,7 +178,7 @@
             </div>
             <div class="faq-item">
                 <div class="faq-question">
-                    <span> كيف يمكنني حجز موعد؟</span>
+                    <span>📞 كيف يمكنني حجز موعد؟</span>
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
@@ -210,7 +201,7 @@
             </div>
             <div class="faq-item">
                 <div class="faq-question">
-                    <span>🏥 هل توجد خدمة طوارئ؟</span>
+                    <span> هل توجد خدمة طوارئ؟</span>
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
@@ -230,7 +221,7 @@
     </section>
 
     <!-- قسم التقييمات -->
-    <section id="reviews" class="container section">
+    <section id="reviews" class="container section bg-light">
         <h2>⭐ آراء عملائنا</h2>
         <p class="reviews-subtitle">ثقة عملائنا هي أغلى ما نملك</p>
         
@@ -279,7 +270,7 @@
     </section>
 
     <!-- التواصل -->
-    <section id="contact" class="container section bg-light">
+    <section id="contact" class="container section">
         <h2>📞 تواصل معنا</h2>
         <div class="contact-info">
             <div class="contact-card">
