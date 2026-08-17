@@ -1,12 +1,17 @@
 /* الألوان المستخلصة من شعار و بانر مارمينا */
 :root {
-    --primary-blue: #1a5f7a;      /* أزرق داكن من الشعار */
-    --teal: #2d9da8;              /* أزرق تركواز من الشعار */
-    --light-teal: #48b5c4;        /* تركواز فاتح */
-    --dark-blue: #0d3b4c;         /* أزرق غامق جداً */
+    --primary-blue: #1a5f7a;
+    --teal: #2d9da8;
+    --light-teal: #48b5c4;
+    --dark-blue: #0d3b4c;
     --text-color: #333;
     --white: #ffffff;
     --light-bg: #f0f8fa;
+    --success: #28a745;
+    --danger: #dc3545;
+    --warning: #ffc107;
+    --shadow: 0 10px 30px rgba(0,0,0,0.1);
+    --shadow-hover: 0 15px 40px rgba(26, 95, 122, 0.2);
 }
 
 * {
@@ -30,7 +35,10 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 header .logo {
@@ -73,18 +81,6 @@ header nav a:hover {
     text-align: center;
     position: relative;
     overflow: hidden;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
-    background-size: 50px 50px;
-    opacity: 0.3;
 }
 
 .hero-content {
@@ -176,7 +172,7 @@ header nav a:hover {
 .container h2 {
     color: var(--primary-blue);
     font-size: 2.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
     font-weight: 800;
     position: relative;
     display: inline-block;
@@ -201,12 +197,12 @@ header nav a:hover {
 /* قسم عن المستشفى */
 .about-box {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 2rem auto 0;
     background: linear-gradient(135deg, var(--primary-blue), var(--teal));
     color: var(--white);
     padding: 3rem;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(26, 95, 122, 0.3);
+    box-shadow: var(--shadow);
 }
 
 .mission-text {
@@ -215,85 +211,233 @@ header nav a:hover {
     font-weight: 700;
 }
 
-/* الشبكة والبطاقات */
-.grid {
+/* قسم مواعيد العيادات */
+.schedule-date {
+    font-size: 1.3rem;
+    color: var(--primary-blue);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: var(--white);
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    display: inline-block;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.schedule-notice {
+    background: var(--warning);
+    color: #000;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 1rem auto 2rem;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+}
+
+/* شبكة الأقسام - التصميم الاحترافي */
+.schedule-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
-.card {
+/* بطاقة القسم - تصميم احترافي */
+.dept-card {
     background: var(--white);
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    text-align: right;
-    transition: 0.3s;
-    border-top: 4px solid var(--teal);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.4s ease;
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
-.card:hover {
+.dept-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(26, 95, 122, 0.2);
+    box-shadow: var(--shadow-hover);
 }
 
-.card h3 {
-    color: var(--primary-blue);
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    font-weight: 700;
-}
-
-.card .price {
-    color: var(--teal);
-    font-weight: 800;
-    font-size: 1.3rem;
-    margin: 1rem 0;
-}
-
-.btn-book {
-    width: 100%;
-    padding: 0.8rem;
-    background: var(--primary-blue);
+/* رأس البطاقة */
+.dept-header {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--teal) 100%);
     color: var(--white);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: 700;
-    transition: 0.3s;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
 }
 
-.btn-book:hover {
-    background: var(--teal);
+.dept-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.dept-icon {
+    font-size: 2.5rem;
+    z-index: 1;
+}
+
+.dept-header h3 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    z-index: 1;
+}
+
+/* جسم البطاقة */
+.dept-body {
+    padding: 1.5rem;
+}
+
+/* صف الطبيب */
+.doctor-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+    background: var(--light-bg);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border-right: 4px solid transparent;
+}
+
+.doctor-row:hover {
+    background: #e8f4f8;
+    border-right-color: var(--teal);
+    transform: translateX(-5px);
+}
+
+.doctor-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+    flex: 1;
+}
+
+.doctor-name {
+    font-weight: 700;
+    color: var(--dark-blue);
+    font-size: 1.1rem;
+}
+
+.doctor-specialty {
+    color: #666;
+    font-size: 0.85rem;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.doctor-time {
+    color: var(--teal);
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+/* أزرار الحالة والحجز */
+.doctor-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.status {
+    padding: 0.5rem 1.2rem;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.status-present {
+    background: var(--success);
+    color: var(--white);
+    box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+}
+
+.status-absent {
+    background: var(--danger);
+    color: var(--white);
+    box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
+}
+
+.btn-whatsapp {
+    background: #25D366;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Tajawal', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+    background: #128C7E;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.5);
+}
+
+/* ملاحظات القسم */
+.status-note {
+    background: #fff3cd;
+    color: #856404;
+    font-size: 0.9rem;
+    padding: 0.8rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: 600;
+    border: 1px solid #ffeaa7;
 }
 
 /* قسم التواصل */
-.contact-section {
-    text-align: center;
-}
-
 .contact-info {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 2rem auto 0;
 }
 
 .contact-card {
     background: var(--white);
     padding: 2.5rem 2rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
     transition: 0.3s;
 }
 
 .contact-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(26, 95, 122, 0.2);
+    box-shadow: var(--shadow-hover);
 }
 
 .contact-icon {
@@ -325,6 +469,46 @@ header nav a:hover {
     transform: scale(1.05);
 }
 
+/* رابط الإيميل */
+.email-link {
+    display: inline-block;
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    transition: 0.3s;
+    word-break: break-all;
+}
+
+.email-link:hover {
+    background: var(--teal);
+    transform: scale(1.05);
+}
+
+/* زرار الموقع على الخريطة */
+.location-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #4285F4 0%, #34A853 100%);
+    color: var(--white);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-top: 0.8rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+}
+
+.location-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(66, 133, 244, 0.5);
+}
+
 /* التذييل */
 footer {
     background: var(--dark-blue);
@@ -339,6 +523,7 @@ footer {
     header {
         flex-direction: column;
         gap: 1rem;
+        padding: 1rem;
     }
     
     header nav {
@@ -374,36 +559,34 @@ footer {
         width: 100%;
         max-width: 300px;
     }
-}
-/* زرار الحجز عبر واتساب */
-.doctor-actions {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.5rem;
-}
-
-.btn-whatsapp {
-    background: #25D366;
-    color: white;
-    border: none;
-    padding: 0.4rem 1rem;
-    border-radius: 20px;
-    font-weight: 700;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: 0.3s;
-    font-family: 'Tajawal', sans-serif;
-}
-
-.btn-whatsapp:hover {
-    background: #128C7E;
-    transform: scale(1.05);
-}
-
-.doctor-specialty {
-    color: #666;
-    font-size: 0.85rem;
-    font-weight: 500;
-    margin-top: 0.2rem;
+    
+    .schedule-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .container h2 {
+        font-size: 1.8rem;
+    }
+    
+    .doctor-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .doctor-actions {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .email-link {
+        font-size: 0.95rem;
+        padding: 0.7rem 1.2rem;
+    }
+    
+    .location-btn {
+        font-size: 0.95rem;
+        padding: 0.7rem 1.2rem;
+    }
 }
