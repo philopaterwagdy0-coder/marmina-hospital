@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مستشفى مارمينا | طاحونة البابا كيرلس</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+    <title>مستشفى مارمينا | طاحونة البابا كيرلس - مواعيد العيادات</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,8 +21,7 @@
         <nav>
             <a href="#home">الرئيسية</a>
             <a href="#about">رسالتنا</a>
-            <a href="#departments">الأقسام</a>
-            <a href="#doctors">الأطباء</a>
+            <a href="#schedule">مواعيد العيادات</a>
             <a href="#contact">تواصل معنا</a>
         </nav>
     </header>
@@ -35,7 +34,7 @@
             <p>نسعى لتقديم خدمات طبية متميزة لجميع فئات المجتمع بلا تمييز<br>ووفقاً لمعايير الجودة العالمية</p>
             <div class="hero-buttons">
                 <a href="tel:01128081867" class="btn-primary">📞 اتصل الآن: 01128081867</a>
-                <a href="#doctors" class="btn-secondary">احجز موعد</a>
+                <a href="#schedule" class="btn-secondary">مواعيد العيادات</a>
             </div>
             <div class="working-hours">
                 <span class="badge-24">🕐 نعمل على مدار الساعة 24/7</span>
@@ -54,24 +53,20 @@
         </div>
     </section>
 
-    <!-- الأقسام الطبية -->
-    <section id="departments" class="container bg-light">
-        <h2>أقسامنا الطبية</h2>
-        <div id="departments-grid" class="grid">
-            <!-- سيتم ملؤه بواسطة JavaScript -->
+    <!-- قسم مواعيد العيادات -->
+    <section id="schedule" class="container bg-light">
+        <h2>📅 جدول مواعيد العيادات</h2>
+        <p class="schedule-date" id="currentDate"></p>
+        <div class="schedule-notice">
+            ⚠️ يرجى التأكد من حضور الطبيب قبل الحضور للعيادة
         </div>
-    </section>
-
-    <!-- الأطباء -->
-    <section id="doctors" class="container">
-        <h2>نخبة من الأطباء</h2>
-        <div id="doctors-grid" class="grid">
+        <div id="departments-grid" class="schedule-grid">
             <!-- سيتم ملؤه بواسطة JavaScript -->
         </div>
     </section>
 
     <!-- التواصل -->
-    <section id="contact" class="container bg-light contact-section">
+    <section id="contact" class="container">
         <h2>تواصل معنا</h2>
         <div class="contact-info">
             <div class="contact-card">
@@ -81,13 +76,23 @@
             </div>
             <div class="contact-card">
                 <div class="contact-icon"></div>
-                <h3>ساعات العمل</h3>
-                <p>نعمل على مدار الساعة<br>24 ساعة / 7 أيام</p>
+                <h3>البريد الإلكتروني</h3>
+                <a href="mailto:minaclinic18@gmail.com" class="email-link">minaclinic18@gmail.com</a>
             </div>
             <div class="contact-card">
                 <div class="contact-icon">📍</div>
                 <h3>الموقع</h3>
                 <p>طاحونة البابا كيرلس</p>
+                <a href="https://www.google.com/maps/place/X6WV+VJ+Old+Cairo,+00202" 
+                   target="_blank" 
+                   class="location-btn">
+                    🗺️ افتح الموقع على الخريطة
+                </a>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">🕐</div>
+                <h3>ساعات العمل</h3>
+                <p>نعمل على مدار الساعة<br>24 ساعة / 7 أيام</p>
             </div>
         </div>
     </section>
