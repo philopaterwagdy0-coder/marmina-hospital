@@ -77,7 +77,7 @@ const departments = [
     {
         id: 6,
         name: "المسالك البولية",
-        icon: "",
+        icon: "🫘",
         doctors: [
             { name: "طلعت فؤاد", time: "3:00 PM", status: "present" },
             { name: "يوسف فتحي", time: "-", status: "absent" }
@@ -153,7 +153,7 @@ const departments = [
     {
         id: 15,
         name: "باطنة وكلى",
-        icon: "",
+        icon: "🩺",
         doctors: [
             { name: "د/ ميشيل عزيز", time: "10:00 AM", status: "present" }
         ]
@@ -161,7 +161,7 @@ const departments = [
     {
         id: 16,
         name: "جلدية وتناسلية",
-        icon: "",
+        icon: "🧴",
         doctors: [
             { name: "د/ ايناس فايز", time: "10:00 AM", status: "present", specialty: "استشاري الأمراض الجلدية والتناسلية" },
             { name: "د/ نيفين يعقوب", time: "10:00 AM", status: "present" }
@@ -220,58 +220,55 @@ const departments = [
 
 // دالة الحجز عبر واتساب
 function bookViaWhatsApp(doctorName, departmentName) {
-    const message = `السلام عليكم 🙏\nأريد الاستفسار وحجز موعد مع:\n👨‍⚕️ ${doctorName}\n🏥 قسم: ${departmentName}\n\nمستشفى مارمينا - طاحونة البابا كيرلس`;
+    const message = `السلام عليكم \nأريد الاستفسار وحجز موعد مع:\n👨‍⚕️ ${doctorName}\n🏥 قسم: ${departmentName}\n\nمستشفى مارمينا - طاحونة البابا كيرلس`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
 }
 
-// عرض الأقسام
+// عرض الأقسام - كل طبيب في كارت منفصل
 function renderDepartments() {
     const container = document.getElementById('departments-grid');
     let htmlContent = "";
 
     departments.forEach(dep => {
-        htmlContent += `
-            <div class="dept-card">
-                <div class="dept-header">
-                    <span class="dept-icon">${dep.icon}</span>
-                    <h3>${dep.name}</h3>
-                </div>
-                <div class="dept-body">
-        `;
-
         dep.doctors.forEach(doc => {
             const statusClass = doc.status === 'present' ? 'status-present' : 'status-absent';
             const statusText = doc.status === 'present' ? 'موجود' : 'معتذر';
+            const canBook = doc.status === 'present';
             
             htmlContent += `
-                <div class="doctor-row">
-                    <div class="doctor-info">
-                        <span class="doctor-name">${doc.name}</span>
-                        ${doc.specialty ? `<span class="doctor-specialty">${doc.specialty}</span>` : ''}
-                        <span class="doctor-time"> ${doc.time}</span>
+                <div class="doctor-card">
+                    <div class="doc-header">
+                        <span class="doc-icon">${dep.icon}</span>
+                        <span class="dept-name">${dep.name}</span>
                     </div>
-                    <div class="doctor-actions">
-                        <span class="status ${statusClass}">${statusText}</span>
-                        ${doc.status === 'present' ? `
-                            <button class="btn-whatsapp" onclick="bookViaWhatsApp('${doc.name}', '${dep.name}')">
-                                💬 احجز
+                    
+                    <div class="doc-body">
+                        <div class="doc-name">${doc.name}</div>
+                        ${doc.specialty ? `<div class="doc-specialty">${doc.specialty}</div>` : ''}
+                        
+                        <div class="doc-time">
+                            <span class="time-icon"></span>
+                            <span class="time-text">${doc.time}</span>
+                        </div>
+                        
+                        <div class="doc-status ${statusClass}">
+                            ${statusText}
+                        </div>
+                        
+                        ${canBook ? `
+                            <button class="btn-whatsapp-large" onclick="bookViaWhatsApp('${doc.name}', '${dep.name}')">
+                                <span>💬</span>
+                                <span>احجز موعد الآن</span>
                             </button>
                         ` : ''}
                     </div>
+                    
+                    ${dep.note ? `<div class="doc-note">📝 ${dep.note}</div>` : ''}
                 </div>
             `;
         });
-
-        if (dep.note) {
-            htmlContent += `<div class="status-note">📝 ${dep.note}</div>`;
-        }
-
-        htmlContent += `
-                </div>
-            </div>
-        `;
     });
 
     container.innerHTML = htmlContent;
