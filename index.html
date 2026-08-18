@@ -16,7 +16,7 @@
             <span></span>
         </div>
         <div class="logo">
-            <span class="logo-icon"></span>
+            <span class="logo-icon">⛪</span>
             <div>
                 <div>مستشفى مارمينا</div>
                 <small>طاحونة البابا كيرلس</small>
@@ -25,6 +25,7 @@
         <nav class="main-nav">
             <a href="#home">الرئيسية</a>
             <a href="#about">من نحن</a>
+            <a href="#doctors-profiles">أطباؤنا</a>
             <a href="#schedule">مواعيد العيادات</a>
             <a href="#faq">الأسئلة الشائعة</a>
             <a href="#contact">تواصل معنا</a>
@@ -35,7 +36,8 @@
         <div class="menu-close" id="menuClose">✕</div>
         <h2>القائمة</h2>
         <a href="#home" class="menu-link">🏠 الرئيسية</a>
-        <a href="#about" class="menu-link"> من نحن</a>
+        <a href="#about" class="menu-link">🏥 من نحن</a>
+        <a href="#doctors-profiles" class="menu-link">👨‍⚕️ أطباؤنا</a>
         <a href="#schedule" class="menu-link">📅 مواعيد العيادات</a>
         <a href="#faq" class="menu-link">❓ الأسئلة الشائعة</a>
         <a href="#contact" class="menu-link">📞 تواصل معنا</a>
@@ -62,7 +64,7 @@
                         </div>
                     </div>
                     <div class="contact-item">
-                        <span class="icon"></span>
+                        <span class="icon">🕐</span>
                         <div>
                             <span>نعمل على مدار الساعة</span>
                             <span class="badge-24">24/7</span>
@@ -71,7 +73,7 @@
                 </div>
 
                 <div class="location-banner">
-                    <span></span>
+                    <span>📍</span>
                     <span>مستشفى مارمينا - طاحونة البابا كيرلس</span>
                 </div>
             </div>
@@ -102,7 +104,7 @@
                         </div>
                     </div>
                     <div class="service-item">
-                        <span class="service-icon">👨‍️</span>
+                        <span class="service-icon">👨‍⚕️</span>
                         <div>
                             <h4>طاقم طبي متميز</h4>
                             <p>أطباء واستشاريون على أعلى مستوى من الخبرة والكفاءة</p>
@@ -123,7 +125,7 @@
                         </div>
                     </div>
                     <div class="service-item">
-                        <span class="service-icon"></span>
+                        <span class="service-icon">💊</span>
                         <div>
                             <h4>صيدلية</h4>
                             <p>صيدلية داخلية متاحة طوال الوقت</p>
@@ -134,11 +136,18 @@
         </div>
     </section>
 
-    <section id="schedule" class="container section bg-light">
+    <!-- قسم نخبة أطبائنا (جديد) -->
+    <section id="doctors-profiles" class="container section bg-light">
+        <h2>👨‍⚕️ نخبة أطبائنا</h2>
+        <p class="section-subtitle">فريق طبي متميز من الاستشاريين والأخصائيين لرعايتك ورعاية عائلتك</p>
+        <div id="doctors-grid" class="doctors-profiles-grid"></div>
+    </section>
+
+    <section id="schedule" class="container section">
         <h2>📅 جدول مواعيد العيادات</h2>
         <p class="schedule-date" id="currentDate"></p>
         <div class="schedule-notice">
-            ️ يرجى التأكد من حضور الطبيب قبل الحضور للعيادة
+            ⚠️ يرجى التأكد من حضور الطبيب قبل الحضور للعيادة
         </div>
 
         <div class="main-action">
@@ -171,7 +180,7 @@
         </div>
     </section>
 
-    <section id="faq" class="container section">
+    <section id="faq" class="container section bg-light">
         <h2>❓ الأسئلة الشائعة</h2>
         <div class="faq-container">
             <div class="faq-item">
@@ -208,7 +217,7 @@
             </div>
             <div class="faq-item">
                 <div class="faq-question">
-                    <span> هل توجد خدمة طوارئ؟</span>
+                    <span>🚨 هل توجد خدمة طوارئ؟</span>
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
@@ -227,7 +236,7 @@
         </div>
     </section>
 
-    <section id="reviews" class="container section bg-light">
+    <section id="reviews" class="container section">
         <h2>⭐ آراء عملائنا</h2>
         <p class="reviews-subtitle">ثقة عملائنا هي أغلى ما نملك</p>
         
@@ -247,7 +256,7 @@
             </div>
         </div>
 
-        <!-- التعديل هنا: شلت كلمة active من الزرار الأول -->
+        <!-- تم إزالة كلاس active من الزر الأول ليظل مخفياً حتى الضغط -->
         <div class="reviews-filter">
             <button class="review-filter-btn" data-filter="all">كل التقييمات</button>
             <button class="review-filter-btn" data-filter="positive">الإيجابية</button>
@@ -276,27 +285,27 @@
         </div>
     </section>
 
-    <section id="contact" class="container section">
+    <section id="contact" class="container section bg-light">
         <h2>📞 تواصل معنا</h2>
         <div class="contact-info">
             <div class="contact-card">
-                <div class="contact-icon"></div>
+                <div class="contact-icon">📞</div>
                 <h3>للحجز والاستعلام</h3>
                 <a href="tel:01128081867" class="phone-number">01128081867</a>
             </div>
             <div class="contact-card">
-                <div class="contact-icon"></div>
+                <div class="contact-icon">📧</div>
                 <h3>البريد الإلكتروني</h3>
                 <a href="mailto:minaclinic18@gmail.com" class="email-link">minaclinic18@gmail.com</a>
             </div>
             <div class="contact-card">
-                <div class="contact-icon"></div>
+                <div class="contact-icon">📍</div>
                 <h3>الموقع</h3>
                 <p>X6WV+VM Old Cairo</p>
                 <a href="https://www.google.com/maps/place/X6WV+VM+Old+Cairo" 
                    target="_blank" 
                    class="location-btn">
-                    ️ افتح الموقع على الخريطة
+                    🗺️ افتح الموقع على الخريطة
                 </a>
             </div>
             <div class="contact-card">
