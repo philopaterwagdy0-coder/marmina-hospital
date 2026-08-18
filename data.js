@@ -16,88 +16,72 @@ function displayCurrentDate() {
 const WHATSAPP_NUMBER = "201128081867";
 
 const departments = [
-    { id: 1, name: "الجراحة العامة", icon: "", category: "الجراحة", doctors: [
-        { name: "د/ جورج وليم", time: "1:00 PM", status: "present" },
-        { name: "د/ استافرو باولو", time: "2:00 PM", status: "present" },
-        { name: "د/ شنودة سمر", time: "4:00 PM", status: "present" },
-        { name: "د/ عصام جاب الله", time: "7:00 PM", status: "present" }
+    { id: 1, name: "العظام", icon: "", category: "العظام", doctors: [
+        { name: "د/ اندرو جمال", time: "1:00 PM", status: "present" },
+        { name: "د/ أندرو أسامة", time: "6:00 PM", status: "present" },
+        { name: "د/ فايق عبد الشهيد", time: "-", status: "absent" }
     ]},
-    { id: 2, name: "العلاج الطبيعي", icon: "🏃", category: "أخرى", doctors: [
-        { name: "د/ مينا ألبرت", time: "9:00 AM", status: "present" },
-        { name: "د/ مينا البير", time: "2:00 PM", status: "present" },
-        { name: "د/ مريم القصص", time: "1:00 PM", status: "present" },
-        { name: "د/ كيرلس جورح", time: "2:00 PM", status: "present" },
-        { name: "د/ أرميا مسعود", time: "3:00 PM", status: "present" }
+    { id: 2, name: "العلاج الطبيعي", icon: "🏃", category: "العلاج الطبيعي", doctors: [
+        { name: "د/ اينوب سميح", time: "10:00 AM", status: "present" },
+        { name: "د/ مريم صبحي", time: "12:00 PM", status: "present" },
+        { name: "د/ إسحق زكريا", time: "3:00 PM", status: "present" },
+        { name: "د/ كيرلس جورج", time: "9:30 AM", status: "present" }
     ], note: "أطفال" },
-    { id: 3, name: "قلب وأوعية دموية وإيكو", icon: "❤️", category: "القلب", doctors: [
-        { name: "د/ أمير أنور", time: "9:30 AM", status: "present" },
-        { name: "د/ مينا عيد", time: "6:00 PM", status: "present" },
-        { name: "د/ أنطوان سعد", time: "-", status: "present", specialty: "استشاري القلب والأوعية الدموية والايكو" }
+    { id: 3, name: "أسنان", icon: "🦷", category: "الأسنان", doctors: [
+        { name: "د/ الهام فرج الله", time: "10:00 AM", status: "present" },
+        { name: "د/ مادونا اشرف", time: "2:00 PM", status: "present" }
     ]},
-    { id: 4, name: "العظام", icon: "🦴", category: "الجراحة", doctors: [
-        { name: "د/ امجد فخري", time: "12:00 PM", status: "present" },
-        { name: "د/ مارك موريس", time: "4:00 PM", status: "present" },
-        { name: "د/ أمير خيري", time: "-", status: "absent" }
+    { id: 4, name: "جراحة عامة وأورام", icon: "️", category: "الجراحة", doctors: [
+        { name: "د/ رامز رغبت", time: "10:00 AM", status: "present" },
+        { name: "د/ بيتر نعيم", time: "8:00 PM", status: "present" }
     ]},
-    { id: 5, name: "أسنان", icon: "🦷", category: "الأسنان", doctors: [
-        { name: "د/ جورج نادر", time: "9:00 AM", status: "present", specialty: "أخصائي طب وجراحة الفم والأسنان" },
-        { name: "د/ مريم عبيد", time: "4:00 PM", status: "present" }
+    { id: 5, name: "نساء وتوليد", icon: "🤰", category: "النساء", doctors: [
+        { name: "د/ مرقس صفوت", time: "6:00 PM", status: "present" }
     ]},
-    { id: 6, name: "المسالك البولية", icon: "🫘", category: "الجراحة", doctors: [
-        { name: "طلعت فؤاد", time: "3:00 PM", status: "present" },
-        { name: "يوسف فتحي", time: "-", status: "absent" }
+    { id: 6, name: "أطفال", icon: "👶", category: "الأطفال", doctors: [
+        { name: "د/ جيهان عدلي", time: "10:00 AM", status: "present" }
     ]},
-    { id: 7, name: "نساء وتوليد", icon: "🤰", category: "النساء", doctors: [
-        { name: "د/ محب بطرس", time: "1:00 PM", status: "present" },
-        { name: "د/ إيهاب تانان", time: "-", status: "absent" }
+    { id: 7, name: "باطنة وكلى", icon: "🫘", category: "الباطنة", doctors: [
+        { name: "د/ ميشيل عزيز", time: "9:00 AM", status: "present" }
     ]},
-    { id: 8, name: "الأشعة والموجات الصوتية", icon: "🩻", category: "الأشعة", doctors: [
-        { name: "د/ كريستينا فوزي", time: "11:00 AM", status: "present" },
-        { name: "د/ منال حليم", time: "6:00 PM", status: "present" },
-        { name: "د/ رامي رأفت", time: "-", status: "present", specialty: "أخصائي الموجات الصوتية والأشعة التشخيصية" }
+    { id: 8, name: "قلب وأوعية دموية وإيكو", icon: "❤️", category: "القلب", doctors: [
+        { name: "د/ امير اسكندر", time: "10:00 AM", status: "present" }
     ]},
-    { id: 9, name: "باطنة عامة", icon: "🩺", category: "الباطنة", doctors: [
-        { name: "د/ رقيق يوسف", time: "3:00 PM", status: "present" }
+    { id: 9, name: "باطنة عامة", icon: "", category: "الباطنة", doctors: [
+        { name: "د/ سامي عطية", time: "1:00 PM", status: "present" }
     ]},
-    { id: 10, name: "باطنة صدر", icon: "🫁", category: "الباطنة", doctors: [
-        { name: "د/ راجي جرجس", time: "3:30 PM", status: "present" }
+    { id: 10, name: "جهاز هضمي وكبد", icon: "🫀", category: "الباطنة", doctors: [
+        { name: "د/ فادي فضل", time: "3:00 PM", status: "present" }
     ]},
-    { id: 11, name: "أطفال", icon: "👶", category: "الأطفال", doctors: [
-        { name: "د/ يوسف سعد", time: "1:30 PM", status: "present" }
+    { id: 11, name: "الجراحة العامة", icon: "", category: "الجراحة", doctors: [
+        { name: "د/ مينا كمال", time: "12:30 PM", status: "present" },
+        { name: "د/ جورج ابراهيم", time: "4:00 PM", status: "present" }
     ]},
-    { id: 12, name: "أمراض كلى", icon: "🫘", category: "الباطنة", doctors: [
-        { name: "د/ منال مهنى", time: "10:00 AM", status: "present" }
+    { id: 12, name: "أمراض كلى", icon: "", category: "الباطنة", doctors: [
+        { name: "د/ ماريا بباوي", time: "-", status: "absent" },
+        { name: "د/ كرستين عزت", time: "-", status: "absent" }
     ]},
-    { id: 13, name: "مخ وأعصاب", icon: "🧠", category: "الباطنة", doctors: [
-        { name: "د/ أشرف ماهر", time: "6:00 PM", status: "present" }
+    { id: 13, name: "الأشعة والموجات الصوتية", icon: "", category: "الأشعة", doctors: [
+        { name: "د/ رامي رأفت", time: "11:00 AM", status: "present" }
     ]},
-    { id: 14, name: "رمد", icon: "👁️", category: "أخرى", doctors: [
-        { name: "د/ بيتر وهيب", time: "4:00 PM", status: "present" }
+    { id: 14, name: "جراحة تجميل", icon: "💉", category: "الجراحة", doctors: [
+        { name: "د/ عمرو الدياسطي", time: "4:00 PM", status: "present" }
     ]},
-    { id: 15, name: "باطنة وكلى", icon: "🩺", category: "الباطنة", doctors: [
-        { name: "د/ ميشيل عزيز", time: "10:00 AM", status: "present" }
+    { id: 15, name: "مخ وأعصاب", icon: "🧠", category: "المخ والأعصاب", doctors: [
+        { name: "د/ سامية ابراهيم", time: "10:00 AM", status: "present" }
     ]},
-    { id: 16, name: "جلدية وتناسلية", icon: "🧴", category: "الجلدية", doctors: [
-        { name: "د/ ايناس فايز", time: "10:00 AM", status: "present", specialty: "استشاري الأمراض الجلدية والتناسلية" },
-        { name: "د/ نيفين يعقوب", time: "10:00 AM", status: "present" }
+    { id: 16, name: "جراحة أوعية دموية", icon: "", category: "الجراحة", doctors: [
+        { name: "د/ مينا مدحت", time: "7:00 PM", status: "present" }
     ]},
-    { id: 17, name: "سكر وغدد صماء", icon: "💉", category: "الباطنة", doctors: [
-        { name: "د/ ماجد حبيب", time: "10:00 AM", status: "present" }
-    ], note: "20 حالة فقط" },
-    { id: 18, name: "جهاز هضمي وكبد", icon: "🫀", category: "الباطنة", doctors: [
-        { name: "د/ رامي عدلي", time: "11:00 AM", status: "present" }
+    { id: 17, name: "المسالك البولية", icon: "", category: "المسالك البولية", doctors: [
+        { name: "د/ مينا ناجح", time: "4:00 PM", status: "present" }
     ]},
-    { id: 19, name: "تنمية مهارات", icon: "🧩", category: "أخرى", doctors: [
-        { name: "ا/ مريم عيده", time: "12:00 PM", status: "present" }
+    { id: 18, name: "رمد", icon: "️", category: "العيون", doctors: [
+        { name: "د/ ريمون عاطف", time: "2:30 PM", status: "present" },
+        { name: "د/ جون أسامة", time: "6:00 PM", status: "present" }
     ]},
-    { id: 20, name: "أنف وأذن وحنجرة", icon: "", category: "أخرى", doctors: [
-        { name: "د/ ايفانا نبيل", time: "7:00 PM", status: "present" }
-    ]},
-    { id: 21, name: "استشارات تغذية", icon: "🥗", category: "أخرى", doctors: [
-        { name: "ا/ نانسي مبروك", time: "6:00 PM", status: "present" }
-    ]},
-    { id: 22, name: "جراحة الأورام", icon: "🎗️", category: "الأورام", doctors: [
-        { name: "د/ فادي رشاد", time: "-", status: "present", specialty: "مدرس مساعد جراحة الأورام - المعهد القومي للأورام - جامعة القاهرة" }
+    { id: 19, name: "تخاطب وتنمية مهارات وتعديل سلوك", icon: "", category: "التنمية", doctors: [
+        { name: "ا/ كرستين صموئيل", time: "3:00 PM", status: "present" }
     ]}
 ];
 
@@ -132,24 +116,28 @@ if (savedReviews) {
 }
 
 function bookViaWhatsApp(doctorName, departmentName) {
-    const message = `السلام عليكم \nأريد الاستفسار وحجز موعد مع:\n👨‍⚕️ ${doctorName}\n🏥 قسم: ${departmentName}\n\nمستشفى مارمينا - طاحونة البابا كيرلس`;
+    const message = `السلام عليكم 🙏\nأريد الاستفسار وحجز موعد مع:\n👨‍⚕️ ${doctorName}\n🏥 قسم: ${departmentName}\n\nمستشفى مارمينا - طاحونة البابا كيرلس`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
 }
 
-// عرض الأقسام (Categories)
 function renderCategories() {
     const container = document.getElementById('categoriesGrid');
     let htmlContent = "";
 
-    departments.forEach((dep, index) => {
-        const doctorCount = dep.doctors.length;
+    const uniqueCategories = [...new Set(departments.map(dep => dep.category))];
+    
+    uniqueCategories.forEach((category, index) => {
+        const categoryDepts = departments.filter(dep => dep.category === category);
+        const totalDoctors = categoryDepts.reduce((sum, dep) => sum + dep.doctors.length, 0);
+        const icon = categoryDepts[0].icon;
+        
         htmlContent += `
-            <div class="category-card" onclick="showDoctorsByCategory('${dep.category}')" style="animation-delay: ${index * 0.05}s">
-                <span class="category-icon">${dep.icon}</span>
-                <div class="category-name">${dep.category}</div>
-                <div class="category-count">${doctorCount} طبيب</div>
+            <div class="category-card" onclick="showDoctorsByCategory('${category}')" style="animation-delay: ${index * 0.05}s">
+                <span class="category-icon">${icon}</span>
+                <div class="category-name">${category}</div>
+                <div class="category-count">${totalDoctors} طبيب</div>
             </div>
         `;
     });
@@ -157,21 +145,17 @@ function renderCategories() {
     container.innerHTML = htmlContent;
 }
 
-// عرض الأطباء حسب القسم
 function showDoctorsByCategory(category) {
     const categoriesView = document.getElementById('categoriesView');
     const doctorsView = document.getElementById('doctorsView');
     const doctorsGrid = document.getElementById('doctorsGrid');
     const currentCategoryTitle = document.getElementById('currentCategoryTitle');
 
-    // إخفاء الأقسام وإظهار الأطباء
     categoriesView.style.display = 'none';
     doctorsView.style.display = 'block';
 
-    // تحديث العنوان
     currentCategoryTitle.textContent = `🏥 ${category}`;
 
-    // فلترة الأطباء
     const filteredDepts = departments.filter(dept => dept.category === category);
     let htmlContent = "";
 
@@ -191,7 +175,7 @@ function showDoctorsByCategory(category) {
                         <div class="doc-name">${doc.name}</div>
                         ${doc.specialty ? `<div class="doc-specialty">${doc.specialty}</div>` : ''}
                         <div class="doc-time">
-                            <span class="time-icon"></span>
+                            <span class="time-icon">🕐</span>
                             <span class="time-text">${doc.time}</span>
                         </div>
                         <div class="doc-status ${statusClass}">${statusText}</div>
@@ -210,11 +194,9 @@ function showDoctorsByCategory(category) {
 
     doctorsGrid.innerHTML = htmlContent;
 
-    // Scroll لأعلى القسم
     doctorsView.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-// الرجوع للأقسام
 function backToCategories() {
     const categoriesView = document.getElementById('categoriesView');
     const doctorsView = document.getElementById('doctorsView');
@@ -225,7 +207,6 @@ function backToCategories() {
     categoriesView.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-// الرجوع للرئيسية
 function backToMain() {
     const categoriesView = document.getElementById('categoriesView');
     const doctorsView = document.getElementById('doctorsView');
@@ -236,7 +217,6 @@ function backToMain() {
     document.getElementById('schedule').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-// عرض كل الأطباء (زرار كل الأطباء)
 function showAllDoctors() {
     const categoriesView = document.getElementById('categoriesView');
     categoriesView.style.display = 'block';
