@@ -16,7 +16,7 @@ function displayCurrentDate() {
 const WHATSAPP_NUMBER = "201128081867";
 
 const departments = [
-    { id: 1, name: "الجراحة العامة", icon: "🔪", category: "الجراحة", doctors: [
+    { id: 1, name: "الجراحة العامة", icon: "", category: "الجراحة", doctors: [
         { name: "د/ جورج وليم", time: "1:00 PM", status: "present" },
         { name: "د/ استافرو باولو", time: "2:00 PM", status: "present" },
         { name: "د/ شنودة سمر", time: "4:00 PM", status: "present" },
@@ -56,13 +56,13 @@ const departments = [
         { name: "د/ منال حليم", time: "6:00 PM", status: "present" },
         { name: "د/ رامي رأفت", time: "-", status: "present", specialty: "أخصائي الموجات الصوتية والأشعة التشخيصية" }
     ]},
-    { id: 9, name: "باطنة عامة", icon: "", category: "الباطنة", doctors: [
+    { id: 9, name: "باطنة عامة", icon: "🩺", category: "الباطنة", doctors: [
         { name: "د/ رقيق يوسف", time: "3:00 PM", status: "present" }
     ]},
     { id: 10, name: "باطنة صدر", icon: "🫁", category: "الباطنة", doctors: [
         { name: "د/ راجي جرجس", time: "3:30 PM", status: "present" }
     ]},
-    { id: 11, name: "أطفال", icon: "", category: "الأطفال", doctors: [
+    { id: 11, name: "أطفال", icon: "👶", category: "الأطفال", doctors: [
         { name: "د/ يوسف سعد", time: "1:30 PM", status: "present" }
     ]},
     { id: 12, name: "أمراض كلى", icon: "🫘", category: "الباطنة", doctors: [
@@ -90,7 +90,7 @@ const departments = [
     { id: 19, name: "تنمية مهارات", icon: "🧩", category: "أخرى", doctors: [
         { name: "ا/ مريم عيده", time: "12:00 PM", status: "present" }
     ]},
-    { id: 20, name: "أنف وأذن وحنجرة", icon: "👂", category: "أخرى", doctors: [
+    { id: 20, name: "أنف وأذن وحنجرة", icon: "", category: "أخرى", doctors: [
         { name: "د/ ايفانا نبيل", time: "7:00 PM", status: "present" }
     ]},
     { id: 21, name: "استشارات تغذية", icon: "🥗", category: "أخرى", doctors: [
@@ -132,16 +132,48 @@ if (savedReviews) {
 }
 
 function bookViaWhatsApp(doctorName, departmentName) {
-    const message = `السلام عليكم 🙏\nأريد الاستفسار وحجز موعد مع:\n👨‍⚕️ ${doctorName}\n🏥 قسم: ${departmentName}\n\nمستشفى مارمينا - طاحونة البابا كيرلس`;
+    const message = `السلام عليكم \nأريد الاستفسار وحجز موعد مع:\n👨‍⚕️ ${doctorName}\n🏥 قسم: ${departmentName}\n\nمستشفى مارمينا - طاحونة البابا كيرلس`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
 }
 
-function renderDepartments(filter = 'all') {
-    const container = document.getElementById('departments-grid');
+// عرض الأقسام (Categories)
+function renderCategories() {
+    const container = document.getElementById('categoriesGrid');
     let htmlContent = "";
-    const filteredDepts = filter === 'all' ? departments : departments.filter(dept => dept.category === filter);
+
+    departments.forEach((dep, index) => {
+        const doctorCount = dep.doctors.length;
+        htmlContent += `
+            <div class="category-card" onclick="showDoctorsByCategory('${dep.category}')" style="animation-delay: ${index * 0.05}s">
+                <span class="category-icon">${dep.icon}</span>
+                <div class="category-name">${dep.category}</div>
+                <div class="category-count">${doctorCount} طبيب</div>
+            </div>
+        `;
+    });
+
+    container.innerHTML = htmlContent;
+}
+
+// عرض الأطباء حسب القسم
+function showDoctorsByCategory(category) {
+    const categoriesView = document.getElementById('categoriesView');
+    const doctorsView = document.getElementById('doctorsView');
+    const doctorsGrid = document.getElementById('doctorsGrid');
+    const currentCategoryTitle = document.getElementById('currentCategoryTitle');
+
+    // إخفاء الأقسام وإظهار الأطباء
+    categoriesView.style.display = 'none';
+    doctorsView.style.display = 'block';
+
+    // تحديث العنوان
+    currentCategoryTitle.textContent = `🏥 ${category}`;
+
+    // فلترة الأطباء
+    const filteredDepts = departments.filter(dept => dept.category === category);
+    let htmlContent = "";
 
     filteredDepts.forEach(dep => {
         dep.doctors.forEach(doc => {
@@ -150,7 +182,7 @@ function renderDepartments(filter = 'all') {
             const canBook = doc.status === 'present';
             
             htmlContent += `
-                <div class="doctor-card" data-category="${dep.category}">
+                <div class="doctor-card">
                     <div class="doc-header">
                         <span class="doc-icon">${dep.icon}</span>
                         <span class="dept-name">${dep.name}</span>
@@ -159,7 +191,7 @@ function renderDepartments(filter = 'all') {
                         <div class="doc-name">${doc.name}</div>
                         ${doc.specialty ? `<div class="doc-specialty">${doc.specialty}</div>` : ''}
                         <div class="doc-time">
-                            <span class="time-icon">🕐</span>
+                            <span class="time-icon"></span>
                             <span class="time-text">${doc.time}</span>
                         </div>
                         <div class="doc-status ${statusClass}">${statusText}</div>
@@ -170,13 +202,48 @@ function renderDepartments(filter = 'all') {
                             </button>
                         ` : ''}
                     </div>
-                    ${dep.note ? `<div class="doc-note"> ${dep.note}</div>` : ''}
+                    ${dep.note ? `<div class="doc-note">📝 ${dep.note}</div>` : ''}
                 </div>
             `;
         });
     });
 
-    container.innerHTML = htmlContent;
+    doctorsGrid.innerHTML = htmlContent;
+
+    // Scroll لأعلى القسم
+    doctorsView.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// الرجوع للأقسام
+function backToCategories() {
+    const categoriesView = document.getElementById('categoriesView');
+    const doctorsView = document.getElementById('doctorsView');
+
+    doctorsView.style.display = 'none';
+    categoriesView.style.display = 'block';
+
+    categoriesView.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// الرجوع للرئيسية
+function backToMain() {
+    const categoriesView = document.getElementById('categoriesView');
+    const doctorsView = document.getElementById('doctorsView');
+
+    categoriesView.style.display = 'none';
+    doctorsView.style.display = 'none';
+
+    document.getElementById('schedule').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// عرض كل الأطباء (زرار كل الأطباء)
+function showAllDoctors() {
+    const categoriesView = document.getElementById('categoriesView');
+    categoriesView.style.display = 'block';
+
+    renderCategories();
+
+    categoriesView.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function renderReviews(filter = 'all') {
@@ -209,27 +276,6 @@ function renderReviews(filter = 'all') {
     });
 
     container.innerHTML = htmlContent;
-}
-
-function setupFilterButtons() {
-    const buttons = document.querySelectorAll('.filter-btn');
-    const scheduleSection = document.getElementById('schedule');
-    
-    buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            buttons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            const filter = btn.getAttribute('data-filter');
-            renderDepartments(filter);
-            
-            setTimeout(() => {
-                scheduleSection.scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }, 100);
-        });
-    });
 }
 
 function setupReviewFilters() {
@@ -359,16 +405,33 @@ function setupScrollToTop() {
     });
 }
 
+function setupNavigation() {
+    const btnAllDoctors = document.getElementById('btnAllDoctors');
+    const btnBackToCategories = document.getElementById('btnBackToCategories');
+    const btnBackToMain = document.getElementById('btnBackToMain');
+
+    if (btnAllDoctors) {
+        btnAllDoctors.addEventListener('click', showAllDoctors);
+    }
+
+    if (btnBackToCategories) {
+        btnBackToCategories.addEventListener('click', backToCategories);
+    }
+
+    if (btnBackToMain) {
+        btnBackToMain.addEventListener('click', backToMain);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     displayCurrentDate();
-    renderDepartments();
     renderReviews();
-    setupFilterButtons();
     setupReviewFilters();
     setupFAQ();
     setupMobileMenu();
     setupStarRating();
     setupScrollToTop();
+    setupNavigation();
     
     console.log("✅ مستشفى مارمينا - طاحونة البابا كيرلس - جاهز!");
 });
