@@ -553,6 +553,95 @@ body {
     line-height: 1.6;
 }
 
+/* ===== Departments Cards ===== */
+.departments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.department-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: all 0.4s ease;
+    border: 3px solid transparent;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.department-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--teal));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.department-card:hover::before {
+    transform: scaleX(1);
+}
+
+.department-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--teal);
+}
+
+.department-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.department-card:hover .department-icon {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.department-name {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+}
+
+.department-description {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.department-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--teal);
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    border: 2px solid var(--teal);
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.department-link:hover {
+    background: var(--teal);
+    color: var(--white);
+    transform: translateX(-5px);
+}
+
+/* Doctor Profiles */
 .doctors-profiles-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -1365,6 +1454,7 @@ footer {
     .schedule-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
     .services-grid { grid-template-columns: repeat(2, 1fr) !important; }
     .reviews-grid.show { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+    .departments-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
 }
 
 @media (max-width: 768px) {
@@ -1417,6 +1507,12 @@ footer {
     .emergency-text p { font-size: 1rem; }
     .emergency-actions { width: 100%; justify-content: center; }
     .emergency-call-btn, .emergency-whatsapp-btn { padding: 0.9rem 1.5rem; font-size: 1rem; flex: 1; justify-content: center; min-width: 160px; }
+    
+    .departments-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; }
+    .department-card { padding: 2rem 1.5rem; }
+    .department-icon { font-size: 3.5rem; }
+    .department-name { font-size: 1.2rem; }
+    .department-description { font-size: 0.95rem; }
 }
 
 @media (max-width: 480px) {
@@ -1443,4 +1539,9 @@ footer {
     .emergency-text h2 { font-size: 1.3rem; }
     .emergency-actions { flex-direction: column; }
     .emergency-call-btn, .emergency-whatsapp-btn { width: 100%; }
+    
+    .departments-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+    .department-card { padding: 1.8rem 1.2rem; }
+    .department-icon { font-size: 3rem; }
+    .department-name { font-size: 1.1rem; }
 }
