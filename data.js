@@ -31,14 +31,14 @@ const departments = [
         { name: "د/ الهام فرج الله", time: "10:00 AM", status: "present" },
         { name: "د/ مادونا اشرف", time: "2:00 PM", status: "present" }
     ]},
-    { id: 4, name: "جراحة عامة وأورام", icon: "🎗️", category: "الجراحة", doctors: [
+    { id: 4, name: "جراحة عامة وأورام", icon: "️", category: "الجراحة", doctors: [
         { name: "د/ رامز رغبت", time: "10:00 AM", status: "present" },
         { name: "د/ بيتر نعيم", time: "8:00 PM", status: "present" }
     ]},
-    { id: 5, name: "نساء وتوليد", icon: "🤰", category: "النساء", doctors: [
+    { id: 5, name: "نساء وتوليد", icon: "", category: "النساء", doctors: [
         { name: "د/ مرقس صفوت", time: "6:00 PM", status: "present" }
     ]},
-    { id: 6, name: "أطفال", icon: "", category: "الأطفال", doctors: [
+    { id: 6, name: "أطفال", icon: "👶", category: "الأطفال", doctors: [
         { name: "د/ جيهان عدلي", time: "10:00 AM", status: "present" }
     ]},
     { id: 7, name: "باطنة وكلى", icon: "🫘", category: "الباطنة", doctors: [
@@ -61,13 +61,13 @@ const departments = [
         { name: "د/ ماريا بباوي", time: "-", status: "absent" },
         { name: "د/ كرستين عزت", time: "-", status: "absent" }
     ]},
-    { id: 13, name: "الأشعة والموجات الصوتية", icon: "", category: "الأشعة", doctors: [
+    { id: 13, name: "الأشعة والموجات الصوتية", icon: "🩻", category: "الأشعة", doctors: [
         { name: "د/ رامي رأفت", time: "11:00 AM", status: "present" }
     ]},
     { id: 14, name: "جراحة تجميل", icon: "💉", category: "الجراحة", doctors: [
         { name: "د/ عمرو الدياسطي", time: "4:00 PM", status: "present" }
     ]},
-    { id: 15, name: "مخ وأعصاب", icon: "🧠", category: "المخ والأعصاب", doctors: [
+    { id: 15, name: "مخ وأعصاب", icon: "", category: "المخ والأعصاب", doctors: [
         { name: "د/ سامية ابراهيم", time: "10:00 AM", status: "present" }
     ]},
     { id: 16, name: "جراحة أوعية دموية", icon: "", category: "الجراحة", doctors: [
@@ -85,109 +85,24 @@ const departments = [
     ]}
 ];
 
-// بيانات الأقسام الطبية للقسم الجديد
 const medicalDepartments = [
-    {
-        id: 1,
-        name: "القلب والأوعية الدموية",
-        icon: "❤️",
-        description: "رعاية وتشخيص أمراض القلب والقسطرة العلاجية بأحدث الأجهزة",
-        category: "القلب"
-    },
-    {
-        id: 2,
-        name: "العظام والمفاصل",
-        icon: "🦴",
-        description: "تشخيص وعلاج مشاكل العظام والمفاصل والإصابات الرياضية",
-        category: "العظام"
-    },
-    {
-        id: 3,
-        name: "الأطفال وحديثي الولادة",
-        icon: "",
-        description: "رعاية شاملة لصحة طفلك من الولادة حتى المراهقة",
-        category: "الأطفال"
-    },
-    {
-        id: 4,
-        name: "النساء والتوليد",
-        icon: "🤰",
-        description: "متابعة الحمل والولادة الآمنة وعلاج مشاكل العقم",
-        category: "النساء"
-    },
-    {
-        id: 5,
-        name: "الباطنة العامة",
-        icon: "",
-        description: "تشخيص وعلاج الأمراض الباطنية المزمنة والحادة",
-        category: "الباطنة"
-    },
-    {
-        id: 6,
-        name: "الأسنان والفم",
-        icon: "",
-        description: "علاج الأسنان والتجميل وزراعة الأسنان بأحدث التقنيات",
-        category: "الأسنان"
-    },
-    {
-        id: 7,
-        name: "المخ والأعصاب",
-        icon: "🧠",
-        description: "تشخيص وعلاج أمراض المخ والأعصاب والعمود الفقري",
-        category: "المخ والأعصاب"
-    },
-    {
-        id: 8,
-        name: "العيون",
-        icon: "👁️",
-        description: "فحص النظر وعلاج أمراض العيون والعمليات الجراحية",
-        category: "العيون"
-    },
-    {
-        id: 9,
-        name: "الجراحة العامة",
-        icon: "🔪",
-        description: "إجراء العمليات الجراحية العامة والمنظار",
-        category: "الجراحة"
-    },
-    {
-        id: 10,
-        name: "الأشعة والتحاليل",
-        icon: "🩻",
-        description: "أشعة مقطعية ورنين مغناطيسي وتحاليل طبية شاملة",
-        category: "الأشعة"
-    }
+    { id: 1, name: "القلب والأوعية الدموية", icon: "❤️", description: "رعاية وتشخيص أمراض القلب والقسطرة العلاجية بأحدث الأجهزة", category: "القلب" },
+    { id: 2, name: "العظام والمفاصل", icon: "🦴", description: "تشخيص وعلاج مشاكل العظام والمفاصل والإصابات الرياضية", category: "العظام" },
+    { id: 3, name: "الأطفال وحديثي الولادة", icon: "👶", description: "رعاية شاملة لصحة طفلك من الولادة حتى المراهقة", category: "الأطفال" },
+    { id: 4, name: "النساء والتوليد", icon: "🤰", description: "متابعة الحمل والولادة الآمنة وعلاج مشاكل العقم", category: "النساء" },
+    { id: 5, name: "الباطنة العامة", icon: "🩺", description: "تشخيص وعلاج الأمراض الباطنية المزمنة والحادة", category: "الباطنة" },
+    { id: 6, name: "الأسنان والفم", icon: "🦷", description: "علاج الأسنان والتجميل وزراعة الأسنان بأحدث التقنيات", category: "الأسنان" },
+    { id: 7, name: "المخ والأعصاب", icon: "🧠", description: "تشخيص وعلاج أمراض المخ والأعصاب والعمود الفقري", category: "المخ والأعصاب" },
+    { id: 8, name: "العيون", icon: "️", description: "فحص النظر وعلاج أمراض العيون والعمليات الجراحية", category: "العيون" },
+    { id: 9, name: "الجراحة العامة", icon: "", description: "إجراء العمليات الجراحية العامة والمنظار", category: "الجراحة" },
+    { id: 10, name: "الأشعة والتحاليل", icon: "🩻", description: "أشعة مقطعية ورنين مغناطيسي وتحاليل طبية شاملة", category: "الأشعة" }
 ];
 
 const featuredDoctors = [
-    {
-        name: "د/ أمير أنور",
-        specialty: "استشاري القلب والأوعية الدموية",
-        bio: "خبرة تزيد عن 15 عاماً في تشخيص وعلاج أمراض القلب والقسطرة العلاجية.",
-        schedule: "🕐 السبت والاثنين: 10:00 ص - 2:00 م",
-        image: "https://img.freepik.com/free-photo/portrait-smiling-handsome-male-doctor-man_171337-5055.jpg"
-    },
-    {
-        name: "د/ فادي فضل",
-        specialty: "استشاري الجهاز الهضمي والكبد",
-        bio: "متخصص في مناظير الجهاز الهضمي وعلاج أمراض الكبد المزمنة بأحدث التقنيات.",
-        schedule: "🕐 الأحد والثلاثاء: 3:00 م - 7:00 م",
-        image: "https://img.freepik.com/free-photo/pleased-young-female-doctor-wearing-medical-robe-stethoscope-around-neck-standing-closed-posture_409827-254.jpg"
-    },
-    {
-        name: "د/ مرقس صفوت",
-        specialty: "استشاري النساء والتوليد",
-        bio: "متابعة الحمل والولادة الآمنة، وعلاج مشاكل العقم وتأخر الإنجاب برعاية فائقة.",
-        schedule: "🕐 يومياً: 6:00 م - 9:00 م",
-        image: "https://img.freepik.com/free-photo/smiling-doctor-with-strethoscope-isolated-grey_651396-974.jpg"
-    },
-    {
-        name: "د/ جيهان عدلي",
-        specialty: "استشاري طب الأطفال وحديثي الولادة",
-        bio: "رعاية شاملة لصحة طفلك، من المتابعة الدورية للتطعيمات وعلاج أمراض الأطفال.",
-        schedule: "🕐 السبت والأربعاء: 10:00 ص - 2:00 م",
-        image: "https://img.freepik.com/free-photo/medium-shot-scientist-with-crossed-arms_23-2148821202.jpg"
-    }
+    { name: "د/ أمير أنور", specialty: "استشاري القلب والأوعية الدموية", bio: "خبرة تزيد عن 15 عاماً في تشخيص وعلاج أمراض القلب والقسطرة العلاجية.", schedule: " السبت والاثنين: 10:00 ص - 2:00 م", image: "https://img.freepik.com/free-photo/portrait-smiling-handsome-male-doctor-man_171337-5055.jpg" },
+    { name: "د/ فادي فضل", specialty: "استشاري الجهاز الهضمي والكبد", bio: "متخصص في مناظير الجهاز الهضمي وعلاج أمراض الكبد المزمنة بأحدث التقنيات.", schedule: "🕐 الأحد والثلاثاء: 3:00 م - 7:00 م", image: "https://img.freepik.com/free-photo/pleased-young-female-doctor-wearing-medical-robe-stethoscope-around-neck-standing-closed-posture_409827-254.jpg" },
+    { name: "د/ مرقس صفوت", specialty: "استشاري النساء والتوليد", bio: "متابعة الحمل والولادة الآمنة، وعلاج مشاكل العقم وتأخر الإنجاب برعاية فائقة.", schedule: "🕐 يومياً: 6:00 م - 9:00 م", image: "https://img.freepik.com/free-photo/smiling-doctor-with-strethoscope-isolated-grey_651396-974.jpg" },
+    { name: "د/ جيهان عدلي", specialty: "استشاري طب الأطفال وحديثي الولادة", bio: "رعاية شاملة لصحة طفلك، من المتابعة الدورية للتطعيمات وعلاج أمراض الأطفال.", schedule: "🕐 السبت والأربعاء: 10:00 ص - 2:00 م", image: "https://img.freepik.com/free-photo/medium-shot-scientist-with-crossed-arms_23-2148821202.jpg" }
 ];
 
 const defaultReviews = [
@@ -221,17 +136,15 @@ if (savedReviews) {
 }
 
 function bookViaWhatsApp(doctorName, departmentName) {
-    const message = `السلام عليكم 🙏\nأريد الاستفسار وحجز موعد مع:\n‍⚕️ ${doctorName}\n🏥 قسم: ${departmentName}\n\nمستشفى مارمينا - طاحونة البابا كيرلس`;
+    const message = `السلام عليكم 🙏\nأريد الاستفسار وحجز موعد مع:\n👨‍️ ${doctorName}\n🏥 قسم: ${departmentName}\n\nمستشفى مارمينا - طاحونة البابا كيرلس`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
 }
 
-// عرض الأقسام الطبية
 function renderDepartmentsCards() {
     const container = document.getElementById('departments-grid');
     if (!container) return;
-    
     let htmlContent = "";
     medicalDepartments.forEach((dept, index) => {
         htmlContent += `
@@ -249,26 +162,19 @@ function renderDepartmentsCards() {
     container.innerHTML = htmlContent;
 }
 
-// عرض جدول مواعيد قسم معين
 function showDepartmentSchedule(category) {
     const scheduleSection = document.getElementById('schedule');
     const categoriesView = document.getElementById('categoriesView');
-    
     categoriesView.style.display = 'block';
-    
     setTimeout(() => {
         scheduleSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        
-        setTimeout(() => {
-            showDoctorsByCategory(category);
-        }, 300);
+        setTimeout(() => { showDoctorsByCategory(category); }, 300);
     }, 100);
 }
 
 function renderFeaturedDoctors() {
     const container = document.getElementById('doctors-grid');
     if (!container) return;
-    
     let htmlContent = "";
     featuredDoctors.forEach((doc, index) => {
         htmlContent += `
@@ -295,7 +201,6 @@ function renderCategories() {
     const container = document.getElementById('categoriesGrid');
     let htmlContent = "";
     const uniqueCategories = [...new Set(departments.map(dep => dep.category))];
-    
     uniqueCategories.forEach((category, index) => {
         const categoryDepts = departments.filter(dep => dep.category === category);
         const totalDoctors = categoryDepts.reduce((sum, dep) => sum + dep.doctors.length, 0);
@@ -319,7 +224,7 @@ function showDoctorsByCategory(category) {
 
     categoriesView.style.display = 'none';
     doctorsView.style.display = 'block';
-    currentCategoryTitle.textContent = `🏥 ${category}`;
+    currentCategoryTitle.textContent = ` ${category}`;
 
     const filteredDepts = departments.filter(dept => dept.category === category);
     let htmlContent = "";
@@ -351,7 +256,7 @@ function showDoctorsByCategory(category) {
                             </button>
                         ` : ''}
                     </div>
-                    ${dep.note ? `<div class="doc-note">📝 ${dep.note}</div>` : ''}
+                    ${dep.note ? `<div class="doc-note"> ${dep.note}</div>` : ''}
                 </div>
             `;
         });
@@ -418,11 +323,9 @@ function setupReviewFilters() {
         btn.addEventListener('click', () => {
             buttons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            
             const filter = btn.getAttribute('data-filter');
             renderReviews(filter);
             reviewsGrid.classList.add('show');
-            
             setTimeout(() => {
                 reviewsGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }, 100);
@@ -531,7 +434,7 @@ function setupNavigation() {
 document.addEventListener('DOMContentLoaded', () => {
     displayCurrentDate();
     renderFeaturedDoctors();
-    renderDepartmentsCards(); // تشغيل قسم التخصصات الجديد
+    renderDepartmentsCards();
     setupReviewFilters();
     setupFAQ();
     setupMobileMenu();
