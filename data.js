@@ -39,7 +39,7 @@ const departments = [
         { name: "د/ مارك موريس", time: "4:00 PM", status: "present" },
         { name: "د/ أمير خيري", time: "-", status: "absent" }
     ]},
-    { id: 5, name: "أسنان", icon: "", category: "الأسنان", doctors: [
+    { id: 5, name: "أسنان", icon: "🦷", category: "الأسنان", doctors: [
         { name: "د/ جورج نادر", time: "9:00 AM", status: "present", specialty: "أخصائي طب وجراحة الفم والأسنان" },
         { name: "د/ مريم عبيد", time: "4:00 PM", status: "present" }
     ]},
@@ -51,18 +51,18 @@ const departments = [
         { name: "د/ محب بطرس", time: "1:00 PM", status: "present" },
         { name: "د/ إيهاب تانان", time: "-", status: "absent" }
     ]},
-    { id: 8, name: "الأشعة والموجات الصوتية", icon: "", category: "الأشعة", doctors: [
+    { id: 8, name: "الأشعة والموجات الصوتية", icon: "🩻", category: "الأشعة", doctors: [
         { name: "د/ كريستينا فوزي", time: "11:00 AM", status: "present" },
         { name: "د/ منال حليم", time: "6:00 PM", status: "present" },
         { name: "د/ رامي رأفت", time: "-", status: "present", specialty: "أخصائي الموجات الصوتية والأشعة التشخيصية" }
     ]},
-    { id: 9, name: "باطنة عامة", icon: "🩺", category: "الباطنة", doctors: [
+    { id: 9, name: "باطنة عامة", icon: "", category: "الباطنة", doctors: [
         { name: "د/ رقيق يوسف", time: "3:00 PM", status: "present" }
     ]},
     { id: 10, name: "باطنة صدر", icon: "🫁", category: "الباطنة", doctors: [
         { name: "د/ راجي جرجس", time: "3:30 PM", status: "present" }
     ]},
-    { id: 11, name: "أطفال", icon: "👶", category: "الأطفال", doctors: [
+    { id: 11, name: "أطفال", icon: "", category: "الأطفال", doctors: [
         { name: "د/ يوسف سعد", time: "1:30 PM", status: "present" }
     ]},
     { id: 12, name: "أمراض كلى", icon: "🫘", category: "الباطنة", doctors: [
@@ -74,20 +74,20 @@ const departments = [
     { id: 14, name: "رمد", icon: "👁️", category: "أخرى", doctors: [
         { name: "د/ بيتر وهيب", time: "4:00 PM", status: "present" }
     ]},
-    { id: 15, name: "باطنة وكلى", icon: "", category: "الباطنة", doctors: [
+    { id: 15, name: "باطنة وكلى", icon: "🩺", category: "الباطنة", doctors: [
         { name: "د/ ميشيل عزيز", time: "10:00 AM", status: "present" }
     ]},
     { id: 16, name: "جلدية وتناسلية", icon: "🧴", category: "الجلدية", doctors: [
         { name: "د/ ايناس فايز", time: "10:00 AM", status: "present", specialty: "استشاري الأمراض الجلدية والتناسلية" },
         { name: "د/ نيفين يعقوب", time: "10:00 AM", status: "present" }
     ]},
-    { id: 17, name: "سكر وغدد صماء", icon: "", category: "الباطنة", doctors: [
+    { id: 17, name: "سكر وغدد صماء", icon: "💉", category: "الباطنة", doctors: [
         { name: "د/ ماجد حبيب", time: "10:00 AM", status: "present" }
     ], note: "20 حالة فقط" },
     { id: 18, name: "جهاز هضمي وكبد", icon: "🫀", category: "الباطنة", doctors: [
         { name: "د/ رامي عدلي", time: "11:00 AM", status: "present" }
     ]},
-    { id: 19, name: "تنمية مهارات", icon: "", category: "أخرى", doctors: [
+    { id: 19, name: "تنمية مهارات", icon: "🧩", category: "أخرى", doctors: [
         { name: "ا/ مريم عيده", time: "12:00 PM", status: "present" }
     ]},
     { id: 20, name: "أنف وأذن وحنجرة", icon: "👂", category: "أخرى", doctors: [
@@ -96,7 +96,7 @@ const departments = [
     { id: 21, name: "استشارات تغذية", icon: "🥗", category: "أخرى", doctors: [
         { name: "ا/ نانسي مبروك", time: "6:00 PM", status: "present" }
     ]},
-    { id: 22, name: "جراحة الأورام", icon: "️", category: "الأورام", doctors: [
+    { id: 22, name: "جراحة الأورام", icon: "🎗️", category: "الأورام", doctors: [
         { name: "د/ فادي رشاد", time: "-", status: "present", specialty: "مدرس مساعد جراحة الأورام - المعهد القومي للأورام - جامعة القاهرة" }
     ]}
 ];
@@ -170,7 +170,7 @@ function renderDepartments(filter = 'all') {
                             </button>
                         ` : ''}
                     </div>
-                    ${dep.note ? `<div class="doc-note">📝 ${dep.note}</div>` : ''}
+                    ${dep.note ? `<div class="doc-note"> ${dep.note}</div>` : ''}
                 </div>
             `;
         });
@@ -184,12 +184,12 @@ function renderReviews(filter = 'all') {
     let htmlContent = "";
     const filteredReviews = filter === 'all' ? reviews : reviews.filter(review => review.type === filter);
 
-    filteredReviews.forEach(review => {
+    filteredReviews.forEach((review, index) => {
         const stars = '⭐'.repeat(review.rating);
         const initial = review.name.charAt(0);
         
         htmlContent += `
-            <div class="review-card ${review.type}">
+            <div class="review-card ${review.type}" style="animation-delay: ${index * 0.1}s">
                 <span class="review-type-badge ${review.type}">
                     ${review.type === 'positive' ? 'إيجابي' : 'سلبي'}
                 </span>
@@ -213,12 +213,21 @@ function renderReviews(filter = 'all') {
 
 function setupFilterButtons() {
     const buttons = document.querySelectorAll('.filter-btn');
+    const scheduleSection = document.getElementById('schedule');
+    
     buttons.forEach(btn => {
         btn.addEventListener('click', () => {
             buttons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             const filter = btn.getAttribute('data-filter');
             renderDepartments(filter);
+            
+            setTimeout(() => {
+                scheduleSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }, 100);
         });
     });
 }
@@ -328,14 +337,38 @@ function setupStarRating() {
     }
 }
 
+function setupScrollToTop() {
+    const scrollToTopBtn = document.createElement('div');
+    scrollToTopBtn.className = 'scroll-to-top';
+    scrollToTopBtn.innerHTML = '↑';
+    document.body.appendChild(scrollToTopBtn);
+
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            scrollToTopBtn.classList.add('visible');
+        } else {
+            scrollToTopBtn.classList.remove('visible');
+        }
+    });
+
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     displayCurrentDate();
     renderDepartments();
+    renderReviews();
     setupFilterButtons();
+    setupReviewFilters();
     setupFAQ();
     setupMobileMenu();
-    renderReviews();
-    setupReviewFilters();
     setupStarRating();
+    setupScrollToTop();
+    
     console.log("✅ مستشفى مارمينا - طاحونة البابا كيرلس - جاهز!");
 });
