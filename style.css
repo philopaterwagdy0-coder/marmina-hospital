@@ -417,26 +417,34 @@ body {
     margin-bottom: 0.5rem;
 }
 
+/* ======================== */
+/* أزرار الفلترة - تصميم احترافي */
+/* ======================== */
 .filter-buttons {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-    justify-content: center;
-    margin-bottom: 2rem;
+    max-width: 800px;
+    margin: 0 auto 2rem;
 }
 
 .filter-btn {
     background: var(--white);
     color: var(--primary-blue);
     border: 2px solid var(--teal);
-    padding: 0.8rem 1.5rem;
-    border-radius: 50px;
+    padding: 1rem 1.5rem;
+    border-radius: 15px;
     cursor: pointer;
     font-weight: 700;
-    transition: 0.3s;
-    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 4px 15px rgba(45, 157, 168, 0.15);
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .filter-btn::before {
@@ -460,12 +468,25 @@ body {
 .filter-btn:hover {
     background: var(--teal);
     color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(45, 157, 168, 0.3);
 }
 
 .filter-btn.active {
-    background: var(--primary-blue);
+    background: linear-gradient(135deg, var(--primary-blue), var(--teal));
     color: var(--white);
     border-color: var(--primary-blue);
+    box-shadow: 0 8px 25px rgba(26, 95, 122, 0.4);
+    transform: translateY(-3px);
+}
+
+/* زر "كل الأطباء" ياخد العرض كامل */
+.filter-btn[data-filter="all"] {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, var(--primary-blue), var(--teal));
+    color: var(--white);
+    font-size: 1.2rem;
+    padding: 1.2rem;
 }
 
 .schedule-grid {
@@ -716,34 +737,37 @@ body {
 }
 
 .reviews-filter {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
+    max-width: 600px;
+    margin: 0 auto 2rem;
 }
 
 .review-filter-btn {
     background: var(--white);
     color: var(--primary-blue);
     border: 2px solid var(--teal);
-    padding: 0.8rem 1.5rem;
-    border-radius: 50px;
+    padding: 1rem;
+    border-radius: 15px;
     cursor: pointer;
     font-weight: 700;
     transition: 0.3s;
     font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(45, 157, 168, 0.15);
 }
 
 .review-filter-btn:hover {
     background: var(--teal);
     color: var(--white);
+    transform: translateY(-3px);
 }
 
 .review-filter-btn.active {
-    background: var(--primary-blue);
+    background: linear-gradient(135deg, var(--primary-blue), var(--teal));
     color: var(--white);
     border-color: var(--primary-blue);
+    box-shadow: 0 8px 25px rgba(26, 95, 122, 0.4);
 }
 
 .reviews-grid {
@@ -1127,14 +1151,21 @@ footer {
         justify-content: center;
     }
     
+    /* الأزرار في شبكة 2x5 على الموبايل */
     .filter-buttons {
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
     }
     
     .filter-btn {
-        width: 100%;
-        max-width: 300px;
+        padding: 0.9rem 0.5rem;
+        font-size: 1rem;
+        min-height: 55px;
+    }
+    
+    .filter-btn[data-filter="all"] {
+        grid-column: 1 / -1;
+        font-size: 1.1rem;
     }
     
     .schedule-grid {
@@ -1151,6 +1182,10 @@ footer {
     }
     
     .reviews-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .reviews-filter {
         grid-template-columns: 1fr;
     }
     
@@ -1201,5 +1236,17 @@ footer {
         width: 50px;
         height: 50px;
         font-size: 1.2rem;
+    }
+    
+    /* على الموبايل الصغير - الأزرار تبقى 2 في كل صف */
+    .filter-buttons {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
+    }
+    
+    .filter-btn {
+        padding: 0.8rem 0.4rem;
+        font-size: 0.9rem;
+        min-height: 50px;
     }
 }
