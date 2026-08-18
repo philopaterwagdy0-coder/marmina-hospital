@@ -229,17 +229,6 @@ body {
     }
 }
 
-@keyframes fadeInRight {
-    from {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
 @keyframes scaleIn {
     from {
         opacity: 0;
@@ -431,9 +420,6 @@ body {
     line-height: 1.5;
 }
 
-/* ======================== */
-/* زرار كل الأطباء */
-/* ======================== */
 .main-action {
     text-align: center;
     margin: 2rem 0;
@@ -465,9 +451,6 @@ body {
     font-size: 2rem;
 }
 
-/* ======================== */
-/* عرض الأقسام (Categories View) */
-/* ======================== */
 .categories-view {
     margin-top: 2rem;
     animation: fadeInUp 0.6s ease;
@@ -570,9 +553,6 @@ body {
     display: inline-block;
 }
 
-/* ======================== */
-/* عرض الأطباء (Doctors View) */
-/* ======================== */
 .doctors-view {
     margin-top: 2rem;
     animation: fadeInUp 0.6s ease;
@@ -1220,7 +1200,6 @@ footer {
         justify-content: center;
     }
     
-    /* زرار كل الأطباء */
     .btn-all-doctors {
         padding: 1.2rem 2rem;
         font-size: 1.1rem;
@@ -1228,7 +1207,6 @@ footer {
         justify-content: center;
     }
     
-    /* الأقسام - شبكة 2 أعمدة */
     .categories-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
@@ -1246,12 +1224,10 @@ footer {
         font-size: 1rem;
     }
     
-    /* الأطباء - عمود واحد */
     .schedule-grid {
         grid-template-columns: 1fr;
     }
     
-    /* الخدمات - عمودين */
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.8rem;
@@ -1273,7 +1249,6 @@ footer {
         font-size: 0.8rem;
     }
     
-    /* التواصل - عمودين */
     .contact-info {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.8rem;
@@ -1291,7 +1266,6 @@ footer {
         font-size: 1rem;
     }
     
-    /* الإحصائيات - 3 أعمدة */
     .reviews-stats {
         grid-template-columns: repeat(3, 1fr);
         gap: 0.8rem;
@@ -1309,7 +1283,6 @@ footer {
         font-size: 0.8rem;
     }
     
-    /* التقييمات */
     .reviews-grid {
         grid-template-columns: 1fr;
     }
@@ -1323,13 +1296,11 @@ footer {
         gap: 1rem;
     }
     
-    /* الأسئلة الشائعة */
     .faq-question {
         font-size: 1rem;
         padding: 1rem;
     }
     
-    /* View Header */
     .view-header {
         flex-direction: column;
         text-align: center;
@@ -1344,7 +1315,6 @@ footer {
         justify-content: center;
     }
     
-    /* الحاويات */
     .container {
         padding: 2rem 1rem;
     }
@@ -1353,7 +1323,6 @@ footer {
         font-size: 1.6rem;
     }
     
-    /* زر الرجوع للأعلى */
     .scroll-to-top {
         bottom: 20px;
         left: 20px;
@@ -1380,7 +1349,6 @@ footer {
         font-size: 2rem;
     }
     
-    /* الأقسام - 2 أعمدة */
     .categories-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.8rem;
@@ -1403,7 +1371,6 @@ footer {
         padding: 0.2rem 0.8rem;
     }
     
-    /* الخدمات - عمودين */
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.6rem;
@@ -1421,7 +1388,6 @@ footer {
         font-size: 0.85rem;
     }
     
-    /* التواصل - عمودين */
     .contact-info {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.6rem;
@@ -1442,7 +1408,6 @@ footer {
         padding: 0.6rem 1rem;
     }
     
-    /* الإحصائيات - 3 أعمدة */
     .reviews-stats {
         grid-template-columns: repeat(3, 1fr);
         gap: 0.6rem;
