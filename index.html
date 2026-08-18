@@ -16,7 +16,7 @@
             <span></span>
         </div>
         <div class="logo">
-            <span class="logo-icon">⛪</span>
+            <span class="logo-icon"></span>
             <div>
                 <div>مستشفى مارمينا</div>
                 <small>طاحونة البابا كيرلس</small>
@@ -34,7 +34,7 @@
     <div class="side-menu" id="sideMenu">
         <div class="menu-close" id="menuClose">✕</div>
         <h2>القائمة</h2>
-        <a href="#home" class="menu-link">🏠 الرئيسية</a>
+        <a href="#home" class="menu-link"> الرئيسية</a>
         <a href="#about" class="menu-link">🏥 من نحن</a>
         <a href="#schedule" class="menu-link">📅 مواعيد العيادات</a>
         <a href="#faq" class="menu-link">❓ الأسئلة الشائعة</a>
@@ -116,14 +116,14 @@
                         </div>
                     </div>
                     <div class="service-item">
-                        <span class="service-icon">🧪</span>
+                        <span class="service-icon"></span>
                         <div>
                             <h4>معمل وأشعة</h4>
                             <p>معمل تحليل وأشعة تشخيصية بأحدث التقنيات</p>
                         </div>
                     </div>
                     <div class="service-item">
-                        <span class="service-icon">💊</span>
+                        <span class="service-icon"></span>
                         <div>
                             <h4>صيدلية</h4>
                             <p>صيدلية داخلية متاحة طوال الوقت</p>
@@ -134,28 +134,45 @@
         </div>
     </section>
 
+    <!-- قسم مواعيد العيادات - الرئيسي -->
     <section id="schedule" class="container section bg-light">
-        <h2>📅 جدول مواعيد العيادات</h2>
+        <h2> جدول مواعيد العيادات</h2>
         <p class="schedule-date" id="currentDate"></p>
         <div class="schedule-notice">
             ⚠️ يرجى التأكد من حضور الطبيب قبل الحضور للعيادة
         </div>
 
-        <div class="filter-buttons">
-            <button class="filter-btn active" data-filter="all">كل الأطباء</button>
-            <button class="filter-btn" data-filter="الجراحة">الجراحة</button>
-            <button class="filter-btn" data-filter="الباطنة">الباطنة</button>
-            <button class="filter-btn" data-filter="القلب">القلب</button>
-            <button class="filter-btn" data-filter="الأطفال">الأطفال</button>
-            <button class="filter-btn" data-filter="الأسنان">الأسنان</button>
-            <button class="filter-btn" data-filter="النساء">النساء</button>
-            <button class="filter-btn" data-filter="الأورام">الأورام</button>
-            <button class="filter-btn" data-filter="الجلدية">الجلدية</button>
-            <button class="filter-btn" data-filter="الأشعة">الأشعة</button>
-            <button class="filter-btn" data-filter="أخرى">أخرى</button>
+        <!-- زرار كل الأطباء -->
+        <div class="main-action">
+            <button class="btn-all-doctors" id="btnAllDoctors">
+                <span class="btn-icon">‍⚕️</span>
+                <span>عرض جميع الأقسام</span>
+            </button>
         </div>
 
-        <div id="departments-grid" class="schedule-grid"></div>
+        <!-- عرض الأقسام (Categories View) -->
+        <div id="categoriesView" class="categories-view" style="display: none;">
+            <div class="view-header">
+                <h3>اختر القسم الطبي</h3>
+                <button class="btn-back" id="btnBackToMain">
+                    <span></span>
+                    <span>الرجوع للرئيسية</span>
+                </button>
+            </div>
+            <div id="categoriesGrid" class="categories-grid"></div>
+        </div>
+
+        <!-- عرض الأطباء (Doctors View) -->
+        <div id="doctorsView" class="doctors-view" style="display: none;">
+            <div class="view-header">
+                <button class="btn-back" id="btnBackToCategories">
+                    <span>→</span>
+                    <span>الرجوع للأقسام</span>
+                </button>
+                <h3 id="currentCategoryTitle"></h3>
+            </div>
+            <div id="doctorsGrid" class="schedule-grid"></div>
+        </div>
     </section>
 
     <section id="faq" class="container section">
@@ -282,11 +299,11 @@
                 <a href="https://www.google.com/maps/place/X6WV+VJ+Old+Cairo,+00202" 
                    target="_blank" 
                    class="location-btn">
-                    ️ افتح الموقع على الخريطة
+                    🗺️ افتح الموقع على الخريطة
                 </a>
             </div>
             <div class="contact-card">
-                <div class="contact-icon"></div>
+                <div class="contact-icon">🕐</div>
                 <h3>ساعات العمل</h3>
                 <p>نعمل على مدار الساعة<br>24 ساعة / 7 أيام</p>
             </div>
