@@ -38,7 +38,7 @@ const departments = [
     { id: 5, name: "نساء وتوليد", icon: "🤰", category: "النساء", doctors: [
         { name: "د/ مرقس صفوت", time: "6:00 PM", status: "present" }
     ]},
-    { id: 6, name: "أطفال", icon: "", category: "الأطفال", doctors: [
+    { id: 6, name: "أطفال", icon: "👶", category: "الأطفال", doctors: [
         { name: "د/ جيهان عدلي", time: "10:00 AM", status: "present" }
     ]},
     { id: 7, name: "باطنة وكلى", icon: "🫘", category: "الباطنة", doctors: [
@@ -61,7 +61,7 @@ const departments = [
         { name: "د/ ماريا بباوي", time: "-", status: "absent" },
         { name: "د/ كرستين عزت", time: "-", status: "absent" }
     ]},
-    { id: 13, name: "الأشعة والموجات الصوتية", icon: "", category: "الأشعة", doctors: [
+    { id: 13, name: "الأشعة والموجات الصوتية", icon: "🩻", category: "الأشعة", doctors: [
         { name: "د/ رامي رأفت", time: "11:00 AM", status: "present" }
     ]},
     { id: 14, name: "جراحة تجميل", icon: "💉", category: "الجراحة", doctors: [
@@ -70,19 +70,50 @@ const departments = [
     { id: 15, name: "مخ وأعصاب", icon: "🧠", category: "المخ والأعصاب", doctors: [
         { name: "د/ سامية ابراهيم", time: "10:00 AM", status: "present" }
     ]},
-    { id: 16, name: "جراحة أوعية دموية", icon: "", category: "الجراحة", doctors: [
+    { id: 16, name: "جراحة أوعية دموية", icon: "🩸", category: "الجراحة", doctors: [
         { name: "د/ مينا مدحت", time: "7:00 PM", status: "present" }
     ]},
     { id: 17, name: "المسالك البولية", icon: "🫘", category: "المسالك البولية", doctors: [
         { name: "د/ مينا ناجح", time: "4:00 PM", status: "present" }
     ]},
-    { id: 18, name: "رمد", icon: "️", category: "العيون", doctors: [
+    { id: 18, name: "رمد", icon: "👁️", category: "العيون", doctors: [
         { name: "د/ ريمون عاطف", time: "2:30 PM", status: "present" },
         { name: "د/ جون أسامة", time: "6:00 PM", status: "present" }
     ]},
     { id: 19, name: "تخاطب وتنمية مهارات وتعديل سلوك", icon: "🧩", category: "التنمية", doctors: [
         { name: "ا/ كرستين صموئيل", time: "3:00 PM", status: "present" }
     ]}
+];
+
+const featuredDoctors = [
+    {
+        name: "د/ أمير أنور",
+        specialty: "استشاري القلب والأوعية الدموية",
+        bio: "خبرة تزيد عن 15 عاماً في تشخيص وعلاج أمراض القلب والقسطرة العلاجية.",
+        schedule: "🕐 السبت والاثنين: 10:00 ص - 2:00 م",
+        image: "https://img.freepik.com/free-photo/portrait-smiling-handsome-male-doctor-man_171337-5055.jpg"
+    },
+    {
+        name: "د/ فادي فضل",
+        specialty: "استشاري الجهاز الهضمي والكبد",
+        bio: "متخصص في مناظير الجهاز الهضمي وعلاج أمراض الكبد المزمنة بأحدث التقنيات.",
+        schedule: "🕐 الأحد والثلاثاء: 3:00 م - 7:00 م",
+        image: "https://img.freepik.com/free-photo/pleased-young-female-doctor-wearing-medical-robe-stethoscope-around-neck-standing-closed-posture_409827-254.jpg"
+    },
+    {
+        name: "د/ مرقس صفوت",
+        specialty: "استشاري النساء والتوليد",
+        bio: "متابعة الحمل والولادة الآمنة، وعلاج مشاكل العقم وتأخر الإنجاب برعاية فائقة.",
+        schedule: "🕐 يومياً: 6:00 م - 9:00 م",
+        image: "https://img.freepik.com/free-photo/smiling-doctor-with-strethoscope-isolated-grey_651396-974.jpg"
+    },
+    {
+        name: "د/ جيهان عدلي",
+        specialty: "استشاري طب الأطفال وحديثي الولادة",
+        bio: "رعاية شاملة لصحة طفلك، من المتابعة الدورية للتطعيمات وعلاج أمراض الأطفال.",
+        schedule: "🕐 السبت والأربعاء: 10:00 ص - 2:00 م",
+        image: "https://img.freepik.com/free-photo/medium-shot-scientist-with-crossed-arms_23-2148821202.jpg"
+    }
 ];
 
 const defaultReviews = [
@@ -116,23 +147,47 @@ if (savedReviews) {
 }
 
 function bookViaWhatsApp(doctorName, departmentName) {
-    const message = `السلام عليكم 🙏\nأريد الاستفسار وحجز موعد مع:\n‍⚕️ ${doctorName}\n🏥 قسم: ${departmentName}\n\nمستشفى مارمينا - طاحونة البابا كيرلس`;
+    const message = `السلام عليكم 🙏\nأريد الاستفسار وحجز موعد مع:\n👨‍⚕️ ${doctorName}\n🏥 قسم: ${departmentName}\n\nمستشفى مارمينا - طاحونة البابا كيرلس`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
 }
 
+function renderFeaturedDoctors() {
+    const container = document.getElementById('doctors-grid');
+    if (!container) return;
+    
+    let htmlContent = "";
+    featuredDoctors.forEach((doc, index) => {
+        htmlContent += `
+            <div class="doctor-profile-card" style="animation: fadeInUp 0.6s ease ${index * 0.1}s both;">
+                <div class="doctor-img-container">
+                    <img src="${doc.image}" alt="${doc.name}" loading="lazy">
+                </div>
+                <div class="doctor-profile-body">
+                    <div class="doctor-profile-name">${doc.name}</div>
+                    <div class="doctor-profile-specialty">${doc.specialty}</div>
+                    <div class="doctor-profile-bio">${doc.bio}</div>
+                    <div class="doctor-profile-schedule">${doc.schedule}</div>
+                    <button class="btn-view-profile" onclick="alert('قريباً: صفحة التفاصيل الكاملة للدكتور ${doc.name}')">
+                        عرض الملف الشخصي
+                    </button>
+                </div>
+            </div>
+        `;
+    });
+    container.innerHTML = htmlContent;
+}
+
 function renderCategories() {
     const container = document.getElementById('categoriesGrid');
     let htmlContent = "";
-
     const uniqueCategories = [...new Set(departments.map(dep => dep.category))];
     
     uniqueCategories.forEach((category, index) => {
         const categoryDepts = departments.filter(dep => dep.category === category);
         const totalDoctors = categoryDepts.reduce((sum, dep) => sum + dep.doctors.length, 0);
         const icon = categoryDepts[0].icon;
-        
         htmlContent += `
             <div class="category-card" onclick="showDoctorsByCategory('${category}')" style="animation-delay: ${index * 0.05}s">
                 <span class="category-icon">${icon}</span>
@@ -141,7 +196,6 @@ function renderCategories() {
             </div>
         `;
     });
-
     container.innerHTML = htmlContent;
 }
 
@@ -153,7 +207,6 @@ function showDoctorsByCategory(category) {
 
     categoriesView.style.display = 'none';
     doctorsView.style.display = 'block';
-
     currentCategoryTitle.textContent = `🏥 ${category}`;
 
     const filteredDepts = departments.filter(dept => dept.category === category);
@@ -191,38 +244,27 @@ function showDoctorsByCategory(category) {
             `;
         });
     });
-
     doctorsGrid.innerHTML = htmlContent;
-
     doctorsView.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function backToCategories() {
+    document.getElementById('doctorsView').style.display = 'none';
     const categoriesView = document.getElementById('categoriesView');
-    const doctorsView = document.getElementById('doctorsView');
-
-    doctorsView.style.display = 'none';
     categoriesView.style.display = 'block';
-
     categoriesView.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function backToMain() {
-    const categoriesView = document.getElementById('categoriesView');
-    const doctorsView = document.getElementById('doctorsView');
-
-    categoriesView.style.display = 'none';
-    doctorsView.style.display = 'none';
-
+    document.getElementById('categoriesView').style.display = 'none';
+    document.getElementById('doctorsView').style.display = 'none';
     document.getElementById('schedule').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function showAllDoctors() {
     const categoriesView = document.getElementById('categoriesView');
     categoriesView.style.display = 'block';
-
     renderCategories();
-
     categoriesView.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
@@ -234,7 +276,6 @@ function renderReviews(filter = 'all') {
     filteredReviews.forEach((review, index) => {
         const stars = '⭐'.repeat(review.rating);
         const initial = review.name.charAt(0);
-        
         htmlContent += `
             <div class="review-card ${review.type}" style="animation-delay: ${index * 0.1}s">
                 <span class="review-type-badge ${review.type}">
@@ -254,13 +295,9 @@ function renderReviews(filter = 'all') {
             </div>
         `;
     });
-
     container.innerHTML = htmlContent;
 }
 
-// ==========================================
-// التعديل: التقييمات تظهر بس لما يدوس على زرار
-// ==========================================
 function setupReviewFilters() {
     const buttons = document.querySelectorAll('.review-filter-btn');
     const reviewsGrid = document.getElementById('reviews-grid');
@@ -270,30 +307,21 @@ function setupReviewFilters() {
             buttons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             
-            // نعمل render الأول
             const filter = btn.getAttribute('data-filter');
             renderReviews(filter);
-            
-            // بعدين نظهر الـ grid
             reviewsGrid.classList.add('show');
             
-            // Scroll للتقييمات
             setTimeout(() => {
-                reviewsGrid.scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                reviewsGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }, 100);
         });
     });
 }
 
 function setupFAQ() {
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        question.addEventListener('click', () => {
-            faqItems.forEach(i => {
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.querySelector('.faq-question').addEventListener('click', () => {
+            document.querySelectorAll('.faq-item').forEach(i => {
                 if (i !== item) i.classList.remove('active');
             });
             item.classList.toggle('active');
@@ -305,24 +333,12 @@ function setupMobileMenu() {
     const hamburger = document.getElementById('hamburger');
     const sideMenu = document.getElementById('sideMenu');
     const menuClose = document.getElementById('menuClose');
-    const menuLinks = document.querySelectorAll('.menu-link');
 
-    if (hamburger) {
-        hamburger.addEventListener('click', () => {
-            sideMenu.classList.add('active');
-        });
-    }
-
-    if (menuClose) {
-        menuClose.addEventListener('click', () => {
-            sideMenu.classList.remove('active');
-        });
-    }
-
-    menuLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            sideMenu.classList.remove('active');
-        });
+    if (hamburger) hamburger.addEventListener('click', () => sideMenu.classList.add('active'));
+    if (menuClose) menuClose.addEventListener('click', () => sideMenu.classList.remove('active'));
+    
+    document.querySelectorAll('.menu-link').forEach(link => {
+        link.addEventListener('click', () => sideMenu.classList.remove('active'));
     });
 }
 
@@ -334,11 +350,7 @@ function setupStarRating() {
         star.addEventListener('click', () => {
             selectedRating = parseInt(star.getAttribute('data-rating'));
             stars.forEach((s, index) => {
-                if (index < selectedRating) {
-                    s.classList.add('active');
-                } else {
-                    s.classList.remove('active');
-                }
+                s.classList.toggle('active', index < selectedRating);
             });
         });
     });
@@ -347,9 +359,6 @@ function setupStarRating() {
     if (form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            const name = document.getElementById('reviewerName').value;
-            const text = document.getElementById('reviewText').value;
-            
             if (selectedRating === 0) {
                 alert('يرجى اختيار التقييم');
                 return;
@@ -357,89 +366,64 @@ function setupStarRating() {
 
             const newReview = {
                 id: Date.now(),
-                name: name,
+                name: document.getElementById('reviewerName').value,
                 rating: selectedRating,
-                text: text,
+                text: document.getElementById('reviewText').value,
                 date: new Date().toISOString().split('T')[0],
                 type: selectedRating >= 3 ? 'positive' : 'negative'
             };
 
             reviews.unshift(newReview);
-            
             const currentSaved = JSON.parse(localStorage.getItem('marmina_reviews') || '[]');
             currentSaved.unshift(newReview);
             localStorage.setItem('marmina_reviews', JSON.stringify(currentSaved));
             
-            // نظهر التقييمات بعد إضافة تقييم جديد
             const reviewsGrid = document.getElementById('reviews-grid');
             renderReviews('all');
             reviewsGrid.classList.add('show');
             
-            // نرجع الزر النشط لـ "كل التقييمات"
             document.querySelectorAll('.review-filter-btn').forEach(b => b.classList.remove('active'));
             document.querySelector('.review-filter-btn[data-filter="all"]').classList.add('active');
             
             form.reset();
             stars.forEach(s => s.classList.remove('active'));
             selectedRating = 0;
-            
             alert('✅ شكراً لتقييمك! تم حفظه بنجاح');
         });
     }
 }
 
 function setupScrollToTop() {
-    const scrollToTopBtn = document.createElement('div');
-    scrollToTopBtn.className = 'scroll-to-top';
-    scrollToTopBtn.innerHTML = '↑';
-    document.body.appendChild(scrollToTopBtn);
+    const btn = document.createElement('div');
+    btn.className = 'scroll-to-top';
+    btn.innerHTML = '↑';
+    document.body.appendChild(btn);
 
     window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            scrollToTopBtn.classList.add('visible');
-        } else {
-            scrollToTopBtn.classList.remove('visible');
-        }
+        btn.classList.toggle('visible', window.pageYOffset > 300);
     });
 
-    scrollToTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 }
 
 function setupNavigation() {
-    const btnAllDoctors = document.getElementById('btnAllDoctors');
-    const btnBackToCategories = document.getElementById('btnBackToCategories');
-    const btnBackToMain = document.getElementById('btnBackToMain');
+    const btnAll = document.getElementById('btnAllDoctors');
+    const btnBackCat = document.getElementById('btnBackToCategories');
+    const btnBackMain = document.getElementById('btnBackToMain');
 
-    if (btnAllDoctors) {
-        btnAllDoctors.addEventListener('click', showAllDoctors);
-    }
-
-    if (btnBackToCategories) {
-        btnBackToCategories.addEventListener('click', backToCategories);
-    }
-
-    if (btnBackToMain) {
-        btnBackToMain.addEventListener('click', backToMain);
-    }
+    if (btnAll) btnAll.addEventListener('click', showAllDoctors);
+    if (btnBackCat) btnBackCat.addEventListener('click', backToCategories);
+    if (btnBackMain) btnBackMain.addEventListener('click', backToMain);
 }
 
-// ==========================================
-// التعديل: مش بنستدعي renderReviews() هنا
-// عشان التقييمات تفضل مخفية
-// ==========================================
 document.addEventListener('DOMContentLoaded', () => {
     displayCurrentDate();
+    renderFeaturedDoctors(); // تشغيل قسم الأطباء الجديد
     setupReviewFilters();
     setupFAQ();
     setupMobileMenu();
     setupStarRating();
     setupScrollToTop();
     setupNavigation();
-    
     console.log("✅ مستشفى مارمينا - طاحونة البابا كيرلس - جاهز!");
 });
