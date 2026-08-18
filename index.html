@@ -16,7 +16,7 @@
             <span></span>
         </div>
         <div class="logo">
-            <span class="logo-icon"></span>
+            <span class="logo-icon">⛪</span>
             <div>
                 <div>مستشفى مارمينا</div>
                 <small>طاحونة البابا كيرلس</small>
@@ -25,6 +25,7 @@
         <nav class="main-nav">
             <a href="#home">الرئيسية</a>
             <a href="#about">من نحن</a>
+            <a href="#departments">تخصصاتنا</a>
             <a href="#doctors-profiles">أطباؤنا</a>
             <a href="#schedule">مواعيد العيادات</a>
             <a href="#faq">الأسئلة الشائعة</a>
@@ -35,10 +36,11 @@
     <div class="side-menu" id="sideMenu">
         <div class="menu-close" id="menuClose">✕</div>
         <h2>القائمة</h2>
-        <a href="#home" class="menu-link">🏠 الرئيسية</a>
+        <a href="#home" class="menu-link"> الرئيسية</a>
         <a href="#about" class="menu-link">🏥 من نحن</a>
-        <a href="#doctors-profiles" class="menu-link">👨‍⚕️ أطباؤنا</a>
-        <a href="#schedule" class="menu-link">📅 مواعيد العيادات</a>
+        <a href="#departments" class="menu-link">🏥 تخصصاتنا</a>
+        <a href="#doctors-profiles" class="menu-link">👨‍️ أطباؤنا</a>
+        <a href="#schedule" class="menu-link"> مواعيد العيادات</a>
         <a href="#faq" class="menu-link">❓ الأسئلة الشائعة</a>
         <a href="#contact" class="menu-link">📞 تواصل معنا</a>
     </div>
@@ -57,7 +59,7 @@
 
                 <div class="contact-info-banner">
                     <div class="contact-item">
-                        <span class="icon"></span>
+                        <span class="icon">📞</span>
                         <div>
                             <span>للحجز والاستعلام</span>
                             <a href="tel:01128081867">01128081867</a>
@@ -80,14 +82,14 @@
         </div>
     </section>
 
-    <!-- بانر الطوارئ (جديد) -->
+    <!-- بانر الطوارئ -->
     <section id="emergency" class="emergency-banner">
         <div class="emergency-container">
             <div class="emergency-content">
                 <div class="emergency-icon">
                     <span class="pulse-ring"></span>
                     <span class="pulse-ring delay"></span>
-                    🚨
+                    
                 </div>
                 <div class="emergency-text">
                     <h2>قسم الطوارئ يعمل 24 ساعة</h2>
@@ -117,7 +119,7 @@
                 <div class="services-grid">
                     <h3>خدماتنا</h3>
                     <div class="service-item">
-                        <span class="service-icon"></span>
+                        <span class="service-icon">🏥</span>
                         <div>
                             <h4>رعاية طبية متكاملة</h4>
                             <p>نخبة من الأطباء المتخصصين في مختلف المجالات الطبية</p>
@@ -145,7 +147,7 @@
                         </div>
                     </div>
                     <div class="service-item">
-                        <span class="service-icon"></span>
+                        <span class="service-icon">🧪</span>
                         <div>
                             <h4>معمل وأشعة</h4>
                             <p>معمل تحليل وأشعة تشخيصية بأحدث التقنيات</p>
@@ -163,13 +165,20 @@
         </div>
     </section>
 
-    <section id="doctors-profiles" class="container section bg-light">
-        <h2>‍⚕️ نخبة أطبائنا</h2>
+    <!-- تخصصاتنا الطبية -->
+    <section id="departments" class="container section bg-light">
+        <h2>🏥 تخصصاتنا الطبية</h2>
+        <p class="section-subtitle">نخبة من الأقسام الطبية المتخصصة لرعاية شاملة لك ولعائلتك</p>
+        <div id="departments-grid" class="departments-grid"></div>
+    </section>
+
+    <section id="doctors-profiles" class="container section">
+        <h2>👨‍️ نخبة أطبائنا</h2>
         <p class="section-subtitle">فريق طبي متميز من الاستشاريين والأخصائيين لرعايتك ورعاية عائلتك</p>
         <div id="doctors-grid" class="doctors-profiles-grid"></div>
     </section>
 
-    <section id="schedule" class="container section">
+    <section id="schedule" class="container section bg-light">
         <h2>📅 جدول مواعيد العيادات</h2>
         <p class="schedule-date" id="currentDate"></p>
         <div class="schedule-notice">
@@ -178,7 +187,7 @@
 
         <div class="main-action">
             <button class="btn-all-doctors" id="btnAllDoctors">
-                <span class="btn-icon">👨⚕️</span>
+                <span class="btn-icon">👨‍⚕️</span>
                 <span>عرض جميع الأقسام</span>
             </button>
         </div>
@@ -206,8 +215,8 @@
         </div>
     </section>
 
-    <section id="faq" class="container section bg-light">
-        <h2>❓ الأسئلة الشائعة</h2>
+    <section id="faq" class="container section">
+        <h2> الأسئلة الشائعة</h2>
         <div class="faq-container">
             <div class="faq-item">
                 <div class="faq-question">
@@ -262,7 +271,7 @@
         </div>
     </section>
 
-    <section id="reviews" class="container section">
+    <section id="reviews" class="container section bg-light">
         <h2>⭐ آراء عملائنا</h2>
         <p class="reviews-subtitle">ثقة عملائنا هي أغلى ما نملك</p>
         
@@ -310,16 +319,16 @@
         </div>
     </section>
 
-    <section id="contact" class="container section bg-light">
-        <h2> تواصل معنا</h2>
+    <section id="contact" class="container section">
+        <h2>📞 تواصل معنا</h2>
         <div class="contact-info">
             <div class="contact-card">
-                <div class="contact-icon"></div>
+                <div class="contact-icon">📞</div>
                 <h3>للحجز والاستعلام</h3>
                 <a href="tel:01128081867" class="phone-number">01128081867</a>
             </div>
             <div class="contact-card">
-                <div class="contact-icon"></div>
+                <div class="contact-icon">📧</div>
                 <h3>البريد الإلكتروني</h3>
                 <a href="mailto:minaclinic18@gmail.com" class="email-link">minaclinic18@gmail.com</a>
             </div>
