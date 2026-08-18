@@ -27,7 +27,7 @@ const departments = [
         { name: "د/ إسحق زكريا", time: "3:00 PM", status: "present" },
         { name: "د/ كيرلس جورج", time: "9:30 AM", status: "present" }
     ], note: "أطفال" },
-    { id: 3, name: "أسنان", icon: "", category: "الأسنان", doctors: [
+    { id: 3, name: "أسنان", icon: "🦷", category: "الأسنان", doctors: [
         { name: "د/ الهام فرج الله", time: "10:00 AM", status: "present" },
         { name: "د/ مادونا اشرف", time: "2:00 PM", status: "present" }
     ]},
@@ -35,7 +35,7 @@ const departments = [
         { name: "د/ رامز رغبت", time: "10:00 AM", status: "present" },
         { name: "د/ بيتر نعيم", time: "8:00 PM", status: "present" }
     ]},
-    { id: 5, name: "نساء وتوليد", icon: "", category: "النساء", doctors: [
+    { id: 5, name: "نساء وتوليد", icon: "🤰", category: "النساء", doctors: [
         { name: "د/ مرقس صفوت", time: "6:00 PM", status: "present" }
     ]},
     { id: 6, name: "أطفال", icon: "👶", category: "الأطفال", doctors: [
@@ -53,15 +53,15 @@ const departments = [
     { id: 10, name: "جهاز هضمي وكبد", icon: "🫀", category: "الباطنة", doctors: [
         { name: "د/ فادي فضل", time: "3:00 PM", status: "present" }
     ]},
-    { id: 11, name: "الجراحة العامة", icon: "🔪", category: "الجراحة", doctors: [
+    { id: 11, name: "الجراحة العامة", icon: "", category: "الجراحة", doctors: [
         { name: "د/ مينا كمال", time: "12:30 PM", status: "present" },
         { name: "د/ جورج ابراهيم", time: "4:00 PM", status: "present" }
     ]},
-    { id: 12, name: "أمراض كلى", icon: "🫘", category: "الباطنة", doctors: [
+    { id: 12, name: "أمراض كلى", icon: "", category: "الباطنة", doctors: [
         { name: "د/ ماريا بباوي", time: "-", status: "absent" },
         { name: "د/ كرستين عزت", time: "-", status: "absent" }
     ]},
-    { id: 13, name: "الأشعة والموجات الصوتية", icon: "🩻", category: "الأشعة", doctors: [
+    { id: 13, name: "الأشعة والموجات الصوتية", icon: "", category: "الأشعة", doctors: [
         { name: "د/ رامي رأفت", time: "11:00 AM", status: "present" }
     ]},
     { id: 14, name: "جراحة تجميل", icon: "💉", category: "الجراحة", doctors: [
@@ -89,7 +89,7 @@ const medicalDepartments = [
     { id: 1, name: "القلب والأوعية الدموية", icon: "❤️", description: "رعاية وتشخيص أمراض القلب والقسطرة العلاجية بأحدث الأجهزة", category: "القلب" },
     { id: 2, name: "العظام والمفاصل", icon: "🦴", description: "تشخيص وعلاج مشاكل العظام والمفاصل والإصابات الرياضية", category: "العظام" },
     { id: 3, name: "الأطفال وحديثي الولادة", icon: "👶", description: "رعاية شاملة لصحة طفلك من الولادة حتى المراهقة", category: "الأطفال" },
-    { id: 4, name: "النساء والتوليد", icon: "🤰", description: "متابعة الحمل والولادة الآمنة وعلاج مشاكل العقم", category: "النساء" },
+    { id: 4, name: "النساء والتوليد", icon: "", description: "متابعة الحمل والولادة الآمنة وعلاج مشاكل العقم", category: "النساء" },
     { id: 5, name: "الباطنة العامة", icon: "🩺", description: "تشخيص وعلاج الأمراض الباطنية المزمنة والحادة", category: "الباطنة" },
     { id: 6, name: "الأسنان والفم", icon: "🦷", description: "علاج الأسنان والتجميل وزراعة الأسنان بأحدث التقنيات", category: "الأسنان" },
     { id: 7, name: "المخ والأعصاب", icon: "🧠", description: "تشخيص وعلاج أمراض المخ والأعصاب والعمود الفقري", category: "المخ والأعصاب" },
@@ -98,7 +98,6 @@ const medicalDepartments = [
     { id: 10, name: "الأشعة والتحاليل", icon: "🩻", description: "أشعة مقطعية ورنين مغناطيسي وتحاليل طبية شاملة", category: "الأشعة" }
 ];
 
-// بيانات النصائح الطبية (جديد)
 const healthTips = [
     {
         id: 1,
@@ -110,7 +109,7 @@ const healthTips = [
     },
     {
         id: 2,
-        icon: "",
+        icon: "👶",
         category: "صحة الأطفال",
         title: "متى يجب زيارة طبيب الأطفال؟",
         excerpt: "الزيارات الدورية مهمة لمتابعة نمو الطفل. يجب زيارة الطبيب عند ارتفاع الحرارة أو أي أعراض غير طبيعية.",
@@ -144,17 +143,17 @@ const healthTips = [
         id: 6,
         icon: "🧠",
         category: "الصحة النفسية",
-        title: "كيف تحافظ على صحتك النفسية؟",
+        title: "كيف تحافظ على صحتك النفسيةpp؟",
         excerpt: "النوم الكافي، ممارسة الرياضة، والتواصل الاجتماعي الجيد أساسيات للحفاظ على صحة نفسية متوازنة.",
         fullText: "للحفاظ على صحتك النفسية: نم 7-8 ساعات يومياً، مارس الرياضة بانتظام، حافظ على علاقات اجتماعية إيجابية، تعلم تقنيات الاسترخاء، ولا تتردد في طلب المساعدة المتخصصة عند الحاجة."
     }
 ];
 
 const featuredDoctors = [
-    { name: "د/ أمير أنور", specialty: "استشاري القلب والأوعية الدموية", bio: "خبرة تزيد عن 15 عاماً في تشخيص وعلاج أمراض القلب والقسطرة العلاجية.", schedule: " السبت والاثنين: 10:00 ص - 2:00 م", image: "https://img.freepik.com/free-photo/portrait-smiling-handsome-male-doctor-man_171337-5055.jpg" },
-    { name: "د/ فادي فضل", specialty: "استشاري الجهاز الهضمي والكبد", bio: "متخصص في مناظير الجهاز الهضمي وعلاج أمراض الكبد المزمنة بأحدث التقنيات.", schedule: "🕐 الأحد والثلاثاء: 3:00 م - 7:00 م", image: "https://img.freepik.com/free-photo/pleased-young-female-doctor-wearing-medical-robe-stethoscope-around-neck-standing-closed-posture_409827-254.jpg" },
-    { name: "د/ مرقس صفوت", specialty: "استشاري النساء والتوليد", bio: "متابعة الحمل والولادة الآمنة، وعلاج مشاكل العقم وتأخر الإنجاب برعاية فائقة.", schedule: "🕐 يومياً: 6:00 م - 9:00 م", image: "https://img.freepik.com/free-photo/smiling-doctor-with-strethoscope-isolated-grey_651396-974.jpg" },
-    { name: "د/ جيهان عدلي", specialty: "استشاري طب الأطفال وحديثي الولادة", bio: "رعاية شاملة لصحة طفلك، من المتابعة الدورية للتطعيمات وعلاج أمراض الأطفال.", schedule: " السبت والأربعاء: 10:00 ص - 2:00 م", image: "https://img.freepik.com/free-photo/medium-shot-scientist-with-crossed-arms_23-2148821202.jpg" }
+    { name: "د/ أمير أنور", specialty: "استشاري القلب والأوعية الدموية", bio: "خبرة تزيد عن 15 عاماً في تشخيص وعلاج أمراض القلب والقسطرة العلاجية.", schedule: "🕐 السبت والاثنين: 10:00 ص - 2:00 م", image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop" },
+    { name: "د/ فادي فضل", specialty: "استشاري الجهاز الهضمي والكبد", bio: "متخصص في مناظير الجهاز الهضمي وعلاج أمراض الكبد المزمنة بأحدث التقنيات.", schedule: " الأحد والثلاثاء: 3:00 م - 7:00 م", image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=400&fit=crop" },
+    { name: "د/ مرقس صفوت", specialty: "استشاري النساء والتوليد", bio: "متابعة الحمل والولادة الآمنة، وعلاج مشاكل العقم وتأخر الإنجاب برعاية فائقة.", schedule: "🕐 يومياً: 6:00 م - 9:00 م", image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop" },
+    { name: "د/ جيهان عدلي", specialty: "استشاري طب الأطفال وحديثي الولادة", bio: "رعاية شاملة لصحة طفلك، من المتابعة الدورية للتطعيمات وعلاج أمراض الأطفال.", schedule: " السبت والأربعاء: 10:00 ص - 2:00 م", image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=400&fit=crop" }
 ];
 
 const defaultReviews = [
@@ -188,7 +187,7 @@ if (savedReviews) {
 }
 
 function bookViaWhatsApp(doctorName, departmentName) {
-    const message = `السلام عليكم 🙏\nأريد الاستفسار وحجز موعد مع:\n👨⚕️ ${doctorName}\n قسم: ${departmentName}\n\nمستشفى مارمينا - طاحونة البابا كيرلس`;
+    const message = `السلام عليكم 🙏\nأريد الاستفسار وحجز موعد مع:\n👨‍⚕️ ${doctorName}\n🏥 قسم: ${departmentName}\n\nمستشفى مارمينا - طاحونة البابا كيرلس`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
@@ -205,7 +204,7 @@ function renderDepartmentsCards() {
                 <h3 class="department-name">${dept.name}</h3>
                 <p class="department-description">${dept.description}</p>
                 <div class="department-link">
-                    <span></span>
+                    <span>📅</span>
                     <span>عرض المواعيد</span>
                 </div>
             </div>
@@ -224,7 +223,6 @@ function showDepartmentSchedule(category) {
     }, 100);
 }
 
-// عرض النصائح الطبية (جديد)
 function renderHealthTips() {
     const container = document.getElementById('health-tips-grid');
     if (!container) return;
@@ -512,11 +510,70 @@ function setupNavigation() {
     if (btnBackMain) btnBackMain.addEventListener('click', backToMain);
 }
 
+// ===== Language Switcher =====
+let currentLang = 'ar';
+
+function toggleLanguage() {
+    currentLang = currentLang === 'ar' ? 'en' : 'ar';
+    const langBtn = document.getElementById('langToggle');
+    const html = document.documentElement;
+    const body = document.body;
+    
+    if (currentLang === 'en') {
+        langBtn.textContent = 'عربي';
+        html.setAttribute('dir', 'ltr');
+        html.setAttribute('lang', 'en');
+        body.classList.add('en');
+        body.classList.remove('ar');
+    } else {
+        langBtn.textContent = 'English';
+        html.setAttribute('dir', 'rtl');
+        html.setAttribute('lang', 'ar');
+        body.classList.remove('en');
+        body.classList.add('ar');
+    }
+    
+    // Translate all elements with data-en attribute
+    document.querySelectorAll('[data-en]').forEach(el => {
+        if (currentLang === 'en' && el.dataset.en) {
+            el.textContent = el.dataset.en;
+        } else if (currentLang === 'ar') {
+            // Store original Arabic text
+            if (!el.dataset.ar) {
+                el.dataset.ar = el.textContent;
+            }
+            el.textContent = el.dataset.ar;
+        }
+    });
+    
+    // Translate placeholders
+    document.querySelectorAll('[data-en-placeholder]').forEach(el => {
+        if (currentLang === 'en' && el.dataset.enPlaceholder) {
+            el.placeholder = el.dataset.enPlaceholder;
+        } else if (currentLang === 'ar' && el.dataset.arPlaceholder) {
+            el.placeholder = el.dataset.arPlaceholder;
+        }
+    });
+    
+    localStorage.setItem('marmina_lang', currentLang);
+}
+
+// Initialize language
 document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('marmina_lang') || 'ar';
+    if (savedLang === 'en') {
+        toggleLanguage();
+    }
+    
+    const langBtn = document.getElementById('langToggle');
+    if (langBtn) {
+        langBtn.addEventListener('click', toggleLanguage);
+    }
+    
     displayCurrentDate();
     renderFeaturedDoctors();
     renderDepartmentsCards();
-    renderHealthTips(); // تشغيل قسم النصائح الطبية الجديد
+    renderHealthTips();
     setupReviewFilters();
     setupFAQ();
     setupMobileMenu();
