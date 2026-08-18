@@ -216,6 +216,11 @@ body {
     to { opacity: 1; transform: scale(1); }
 }
 
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
 .mission-box {
     background: rgba(255, 255, 255, 0.95);
     border: 3px solid var(--teal);
@@ -639,6 +644,112 @@ body {
     background: var(--teal);
     color: var(--white);
     transform: translateX(-5px);
+}
+
+/* ===== Why Marmina Section ===== */
+.why-marmina-section {
+    background: linear-gradient(135deg, #f0f8fa 0%, #e0f2f5 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.why-marmina-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(45, 157, 168, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.why-marmina-section::after {
+    content: '';
+    position: absolute;
+    bottom: -50%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(26, 95, 122, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.why-marmina-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.why-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: all 0.4s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.why-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--teal));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.why-card:hover::before {
+    transform: scaleX(1);
+}
+
+.why-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--teal);
+}
+
+.why-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    display: block;
+    transition: transform 0.3s ease;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.why-card:hover .why-icon {
+    transform: scale(1.2);
+    animation: none;
+}
+
+.why-card:nth-child(1) .why-icon { animation-delay: 0s; }
+.why-card:nth-child(2) .why-icon { animation-delay: 0.2s; }
+.why-card:nth-child(3) .why-icon { animation-delay: 0.4s; }
+.why-card:nth-child(4) .why-icon { animation-delay: 0.6s; }
+.why-card:nth-child(5) .why-icon { animation-delay: 0.8s; }
+.why-card:nth-child(6) .why-icon { animation-delay: 1s; }
+
+.why-card h3 {
+    color: var(--primary-blue);
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.why-card p {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.8;
 }
 
 /* Doctor Profiles */
@@ -1455,6 +1566,7 @@ footer {
     .services-grid { grid-template-columns: repeat(2, 1fr) !important; }
     .reviews-grid.show { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
     .departments-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+    .why-marmina-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
 }
 
 @media (max-width: 768px) {
@@ -1513,6 +1625,12 @@ footer {
     .department-icon { font-size: 3.5rem; }
     .department-name { font-size: 1.2rem; }
     .department-description { font-size: 0.95rem; }
+    
+    .why-marmina-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .why-card { padding: 2rem 1.5rem; }
+    .why-icon { font-size: 3rem; }
+    .why-card h3 { font-size: 1.3rem; }
+    .why-card p { font-size: 0.95rem; }
 }
 
 @media (max-width: 480px) {
@@ -1544,4 +1662,9 @@ footer {
     .department-card { padding: 1.8rem 1.2rem; }
     .department-icon { font-size: 3rem; }
     .department-name { font-size: 1.1rem; }
+    
+    .why-card { padding: 1.8rem 1.2rem; }
+    .why-icon { font-size: 2.5rem; }
+    .why-card h3 { font-size: 1.2rem; }
+    .why-card p { font-size: 0.9rem; }
 }
