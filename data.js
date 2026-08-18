@@ -9,7 +9,7 @@ function displayCurrentDate() {
     
     const dateElement = document.getElementById('currentDate');
     if (dateElement) {
-        dateElement.textContent = `📅 ${dayName} ${day} ${month} ${year}`;
+        dateElement.textContent = ` ${dayName} ${day} ${month} ${year}`;
     }
 }
 
@@ -21,7 +21,7 @@ const departments = [
         { name: "د/ أندرو أسامة", time: "6:00 PM", status: "present" },
         { name: "د/ فايق عبد الشهيد", time: "-", status: "absent" }
     ]},
-    { id: 2, name: "العلاج الطبيعي", icon: "🏃", category: "العلاج الطبيعي", doctors: [
+    { id: 2, name: "العلاج الطبيعي", icon: "", category: "العلاج الطبيعي", doctors: [
         { name: "د/ اينوب سميح", time: "10:00 AM", status: "present" },
         { name: "د/ مريم صبحي", time: "12:00 PM", status: "present" },
         { name: "د/ إسحق زكريا", time: "3:00 PM", status: "present" },
@@ -31,11 +31,11 @@ const departments = [
         { name: "د/ الهام فرج الله", time: "10:00 AM", status: "present" },
         { name: "د/ مادونا اشرف", time: "2:00 PM", status: "present" }
     ]},
-    { id: 4, name: "جراحة عامة وأورام", icon: "", category: "الجراحة", doctors: [
+    { id: 4, name: "جراحة عامة وأورام", icon: "🎗️", category: "الجراحة", doctors: [
         { name: "د/ رامز رغبت", time: "10:00 AM", status: "present" },
         { name: "د/ بيتر نعيم", time: "8:00 PM", status: "present" }
     ]},
-    { id: 5, name: "نساء وتوليد", icon: "", category: "النساء", doctors: [
+    { id: 5, name: "نساء وتوليد", icon: "🤰", category: "النساء", doctors: [
         { name: "د/ مرقس صفوت", time: "6:00 PM", status: "present" }
     ]},
     { id: 6, name: "أطفال", icon: "👶", category: "الأطفال", doctors: [
@@ -53,7 +53,7 @@ const departments = [
     { id: 10, name: "جهاز هضمي وكبد", icon: "🫀", category: "الباطنة", doctors: [
         { name: "د/ فادي فضل", time: "3:00 PM", status: "present" }
     ]},
-    { id: 11, name: "الجراحة العامة", icon: "🔪", category: "الجراحة", doctors: [
+    { id: 11, name: "الجراحة العامة", icon: "", category: "الجراحة", doctors: [
         { name: "د/ مينا كمال", time: "12:30 PM", status: "present" },
         { name: "د/ جورج ابراهيم", time: "4:00 PM", status: "present" }
     ]},
@@ -67,10 +67,10 @@ const departments = [
     { id: 14, name: "جراحة تجميل", icon: "💉", category: "الجراحة", doctors: [
         { name: "د/ عمرو الدياسطي", time: "4:00 PM", status: "present" }
     ]},
-    { id: 15, name: "مخ وأعصاب", icon: "", category: "المخ والأعصاب", doctors: [
+    { id: 15, name: "مخ وأعصاب", icon: "🧠", category: "المخ والأعصاب", doctors: [
         { name: "د/ سامية ابراهيم", time: "10:00 AM", status: "present" }
     ]},
-    { id: 16, name: "جراحة أوعية دموية", icon: "", category: "الجراحة", doctors: [
+    { id: 16, name: "جراحة أوعية دموية", icon: "🩸", category: "الجراحة", doctors: [
         { name: "د/ مينا مدحت", time: "7:00 PM", status: "present" }
     ]},
     { id: 17, name: "المسالك البولية", icon: "", category: "المسالك البولية", doctors: [
@@ -116,7 +116,7 @@ if (savedReviews) {
 }
 
 function bookViaWhatsApp(doctorName, departmentName) {
-    const message = `السلام عليكم 🙏\nأريد الاستفسار وحجز موعد مع:\n👨‍️ ${doctorName}\n🏥 قسم: ${departmentName}\n\nمستشفى مارمينا - طاحونة البابا كيرلس`;
+    const message = `السلام عليكم 🙏\nأريد الاستفسار وحجز موعد مع:\n👨‍⚕️ ${doctorName}\n🏥 قسم: ${departmentName}\n\nمستشفى مارمينا - طاحونة البابا كيرلس`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
@@ -258,14 +258,31 @@ function renderReviews(filter = 'all') {
     container.innerHTML = htmlContent;
 }
 
+// ==========================================
+// التعديل الجديد: إظهار التقييمات عند الضغط
+// ==========================================
 function setupReviewFilters() {
     const buttons = document.querySelectorAll('.review-filter-btn');
+    const reviewsGrid = document.getElementById('reviews-grid');
+    
     buttons.forEach(btn => {
         btn.addEventListener('click', () => {
             buttons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
+            
+            // إظهار التقييمات
+            reviewsGrid.classList.add('show');
+            
             const filter = btn.getAttribute('data-filter');
             renderReviews(filter);
+            
+            // Scroll للتقييمات
+            setTimeout(() => {
+                reviewsGrid.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }, 100);
         });
     });
 }
@@ -353,6 +370,10 @@ function setupStarRating() {
             localStorage.setItem('marmina_reviews', JSON.stringify(currentSaved));
             
             renderReviews();
+            
+            // إظهار التقييمات بعد إضافة تقييم جديد
+            const reviewsGrid = document.getElementById('reviews-grid');
+            reviewsGrid.classList.add('show');
             
             form.reset();
             stars.forEach(s => s.classList.remove('active'));
