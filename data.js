@@ -16,7 +16,7 @@ function displayCurrentDate() {
 const WHATSAPP_NUMBER = "201128081867";
 
 const departments = [
-    { id: 1, name: "العظام", icon: "🦴", category: "العظام", doctors: [
+    { id: 1, name: "العظام", icon: "", category: "العظام", doctors: [
         { name: "د/ اندرو جمال", time: "1:00 PM", status: "present" },
         { name: "د/ أندرو أسامة", time: "6:00 PM", status: "present" },
         { name: "د/ فايق عبد الشهيد", time: "-", status: "absent" }
@@ -38,7 +38,7 @@ const departments = [
     { id: 5, name: "نساء وتوليد", icon: "🤰", category: "النساء", doctors: [
         { name: "د/ مرقس صفوت", time: "6:00 PM", status: "present" }
     ]},
-    { id: 6, name: "أطفال", icon: "👶", category: "الأطفال", doctors: [
+    { id: 6, name: "أطفال", icon: "", category: "الأطفال", doctors: [
         { name: "د/ جيهان عدلي", time: "10:00 AM", status: "present" }
     ]},
     { id: 7, name: "باطنة وكلى", icon: "🫘", category: "الباطنة", doctors: [
@@ -61,7 +61,7 @@ const departments = [
         { name: "د/ ماريا بباوي", time: "-", status: "absent" },
         { name: "د/ كرستين عزت", time: "-", status: "absent" }
     ]},
-    { id: 13, name: "الأشعة والموجات الصوتية", icon: "🩻", category: "الأشعة", doctors: [
+    { id: 13, name: "الأشعة والموجات الصوتية", icon: "", category: "الأشعة", doctors: [
         { name: "د/ رامي رأفت", time: "11:00 AM", status: "present" }
     ]},
     { id: 14, name: "جراحة تجميل", icon: "💉", category: "الجراحة", doctors: [
@@ -70,19 +70,93 @@ const departments = [
     { id: 15, name: "مخ وأعصاب", icon: "🧠", category: "المخ والأعصاب", doctors: [
         { name: "د/ سامية ابراهيم", time: "10:00 AM", status: "present" }
     ]},
-    { id: 16, name: "جراحة أوعية دموية", icon: "🩸", category: "الجراحة", doctors: [
+    { id: 16, name: "جراحة أوعية دموية", icon: "", category: "الجراحة", doctors: [
         { name: "د/ مينا مدحت", time: "7:00 PM", status: "present" }
     ]},
     { id: 17, name: "المسالك البولية", icon: "🫘", category: "المسالك البولية", doctors: [
         { name: "د/ مينا ناجح", time: "4:00 PM", status: "present" }
     ]},
-    { id: 18, name: "رمد", icon: "👁️", category: "العيون", doctors: [
+    { id: 18, name: "رمد", icon: "️", category: "العيون", doctors: [
         { name: "د/ ريمون عاطف", time: "2:30 PM", status: "present" },
         { name: "د/ جون أسامة", time: "6:00 PM", status: "present" }
     ]},
     { id: 19, name: "تخاطب وتنمية مهارات وتعديل سلوك", icon: "🧩", category: "التنمية", doctors: [
         { name: "ا/ كرستين صموئيل", time: "3:00 PM", status: "present" }
     ]}
+];
+
+// بيانات الأقسام الطبية للقسم الجديد
+const medicalDepartments = [
+    {
+        id: 1,
+        name: "القلب والأوعية الدموية",
+        icon: "❤️",
+        description: "رعاية وتشخيص أمراض القلب والقسطرة العلاجية بأحدث الأجهزة",
+        category: "القلب"
+    },
+    {
+        id: 2,
+        name: "العظام والمفاصل",
+        icon: "🦴",
+        description: "تشخيص وعلاج مشاكل العظام والمفاصل والإصابات الرياضية",
+        category: "العظام"
+    },
+    {
+        id: 3,
+        name: "الأطفال وحديثي الولادة",
+        icon: "",
+        description: "رعاية شاملة لصحة طفلك من الولادة حتى المراهقة",
+        category: "الأطفال"
+    },
+    {
+        id: 4,
+        name: "النساء والتوليد",
+        icon: "🤰",
+        description: "متابعة الحمل والولادة الآمنة وعلاج مشاكل العقم",
+        category: "النساء"
+    },
+    {
+        id: 5,
+        name: "الباطنة العامة",
+        icon: "",
+        description: "تشخيص وعلاج الأمراض الباطنية المزمنة والحادة",
+        category: "الباطنة"
+    },
+    {
+        id: 6,
+        name: "الأسنان والفم",
+        icon: "",
+        description: "علاج الأسنان والتجميل وزراعة الأسنان بأحدث التقنيات",
+        category: "الأسنان"
+    },
+    {
+        id: 7,
+        name: "المخ والأعصاب",
+        icon: "🧠",
+        description: "تشخيص وعلاج أمراض المخ والأعصاب والعمود الفقري",
+        category: "المخ والأعصاب"
+    },
+    {
+        id: 8,
+        name: "العيون",
+        icon: "👁️",
+        description: "فحص النظر وعلاج أمراض العيون والعمليات الجراحية",
+        category: "العيون"
+    },
+    {
+        id: 9,
+        name: "الجراحة العامة",
+        icon: "🔪",
+        description: "إجراء العمليات الجراحية العامة والمنظار",
+        category: "الجراحة"
+    },
+    {
+        id: 10,
+        name: "الأشعة والتحاليل",
+        icon: "🩻",
+        description: "أشعة مقطعية ورنين مغناطيسي وتحاليل طبية شاملة",
+        category: "الأشعة"
+    }
 ];
 
 const featuredDoctors = [
@@ -147,10 +221,48 @@ if (savedReviews) {
 }
 
 function bookViaWhatsApp(doctorName, departmentName) {
-    const message = `السلام عليكم 🙏\nأريد الاستفسار وحجز موعد مع:\n👨‍⚕️ ${doctorName}\n🏥 قسم: ${departmentName}\n\nمستشفى مارمينا - طاحونة البابا كيرلس`;
+    const message = `السلام عليكم 🙏\nأريد الاستفسار وحجز موعد مع:\n‍⚕️ ${doctorName}\n🏥 قسم: ${departmentName}\n\nمستشفى مارمينا - طاحونة البابا كيرلس`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
+}
+
+// عرض الأقسام الطبية
+function renderDepartmentsCards() {
+    const container = document.getElementById('departments-grid');
+    if (!container) return;
+    
+    let htmlContent = "";
+    medicalDepartments.forEach((dept, index) => {
+        htmlContent += `
+            <div class="department-card" onclick="showDepartmentSchedule('${dept.category}')" style="animation: fadeInUp 0.6s ease ${index * 0.1}s both;">
+                <span class="department-icon">${dept.icon}</span>
+                <h3 class="department-name">${dept.name}</h3>
+                <p class="department-description">${dept.description}</p>
+                <div class="department-link">
+                    <span>📅</span>
+                    <span>عرض المواعيد</span>
+                </div>
+            </div>
+        `;
+    });
+    container.innerHTML = htmlContent;
+}
+
+// عرض جدول مواعيد قسم معين
+function showDepartmentSchedule(category) {
+    const scheduleSection = document.getElementById('schedule');
+    const categoriesView = document.getElementById('categoriesView');
+    
+    categoriesView.style.display = 'block';
+    
+    setTimeout(() => {
+        scheduleSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        
+        setTimeout(() => {
+            showDoctorsByCategory(category);
+        }, 300);
+    }, 100);
 }
 
 function renderFeaturedDoctors() {
@@ -418,7 +530,8 @@ function setupNavigation() {
 
 document.addEventListener('DOMContentLoaded', () => {
     displayCurrentDate();
-    renderFeaturedDoctors(); // تشغيل قسم الأطباء الجديد
+    renderFeaturedDoctors();
+    renderDepartmentsCards(); // تشغيل قسم التخصصات الجديد
     setupReviewFilters();
     setupFAQ();
     setupMobileMenu();
