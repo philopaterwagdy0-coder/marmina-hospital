@@ -9,14 +9,14 @@ function displayCurrentDate() {
     
     const dateElement = document.getElementById('currentDate');
     if (dateElement) {
-        dateElement.textContent = `📅 ${dayName} ${day} ${month} ${year}`;
+        dateElement.textContent = ` ${dayName} ${day} ${month} ${year}`;
     }
 }
 
 const WHATSAPP_NUMBER = "201128081867";
 
 const departments = [
-    { id: 1, name: "العظام", icon: "", category: "العظام", doctors: [
+    { id: 1, name: "العظام", icon: "🦴", category: "العظام", doctors: [
         { name: "د/ اندرو جمال", time: "1:00 PM", status: "present" },
         { name: "د/ أندرو أسامة", time: "6:00 PM", status: "present" },
         { name: "د/ فايق عبد الشهيد", time: "-", status: "absent" }
@@ -27,11 +27,11 @@ const departments = [
         { name: "د/ إسحق زكريا", time: "3:00 PM", status: "present" },
         { name: "د/ كيرلس جورج", time: "9:30 AM", status: "present" }
     ], note: "أطفال" },
-    { id: 3, name: "أسنان", icon: "🦷", category: "الأسنان", doctors: [
+    { id: 3, name: "أسنان", icon: "", category: "الأسنان", doctors: [
         { name: "د/ الهام فرج الله", time: "10:00 AM", status: "present" },
         { name: "د/ مادونا اشرف", time: "2:00 PM", status: "present" }
     ]},
-    { id: 4, name: "جراحة عامة وأورام", icon: "️", category: "الجراحة", doctors: [
+    { id: 4, name: "جراحة عامة وأورام", icon: "🎗️", category: "الجراحة", doctors: [
         { name: "د/ رامز رغبت", time: "10:00 AM", status: "present" },
         { name: "د/ بيتر نعيم", time: "8:00 PM", status: "present" }
     ]},
@@ -67,16 +67,16 @@ const departments = [
     { id: 14, name: "جراحة تجميل", icon: "💉", category: "الجراحة", doctors: [
         { name: "د/ عمرو الدياسطي", time: "4:00 PM", status: "present" }
     ]},
-    { id: 15, name: "مخ وأعصاب", icon: "", category: "المخ والأعصاب", doctors: [
+    { id: 15, name: "مخ وأعصاب", icon: "🧠", category: "المخ والأعصاب", doctors: [
         { name: "د/ سامية ابراهيم", time: "10:00 AM", status: "present" }
     ]},
-    { id: 16, name: "جراحة أوعية دموية", icon: "", category: "الجراحة", doctors: [
+    { id: 16, name: "جراحة أوعية دموية", icon: "🩸", category: "الجراحة", doctors: [
         { name: "د/ مينا مدحت", time: "7:00 PM", status: "present" }
     ]},
     { id: 17, name: "المسالك البولية", icon: "🫘", category: "المسالك البولية", doctors: [
         { name: "د/ مينا ناجح", time: "4:00 PM", status: "present" }
     ]},
-    { id: 18, name: "رمد", icon: "️", category: "العيون", doctors: [
+    { id: 18, name: "رمد", icon: "👁️", category: "العيون", doctors: [
         { name: "د/ ريمون عاطف", time: "2:30 PM", status: "present" },
         { name: "د/ جون أسامة", time: "6:00 PM", status: "present" }
     ]},
@@ -93,16 +93,68 @@ const medicalDepartments = [
     { id: 5, name: "الباطنة العامة", icon: "🩺", description: "تشخيص وعلاج الأمراض الباطنية المزمنة والحادة", category: "الباطنة" },
     { id: 6, name: "الأسنان والفم", icon: "🦷", description: "علاج الأسنان والتجميل وزراعة الأسنان بأحدث التقنيات", category: "الأسنان" },
     { id: 7, name: "المخ والأعصاب", icon: "🧠", description: "تشخيص وعلاج أمراض المخ والأعصاب والعمود الفقري", category: "المخ والأعصاب" },
-    { id: 8, name: "العيون", icon: "️", description: "فحص النظر وعلاج أمراض العيون والعمليات الجراحية", category: "العيون" },
-    { id: 9, name: "الجراحة العامة", icon: "", description: "إجراء العمليات الجراحية العامة والمنظار", category: "الجراحة" },
+    { id: 8, name: "العيون", icon: "👁️", description: "فحص النظر وعلاج أمراض العيون والعمليات الجراحية", category: "العيون" },
+    { id: 9, name: "الجراحة العامة", icon: "🔪", description: "إجراء العمليات الجراحية العامة والمنظار", category: "الجراحة" },
     { id: 10, name: "الأشعة والتحاليل", icon: "🩻", description: "أشعة مقطعية ورنين مغناطيسي وتحاليل طبية شاملة", category: "الأشعة" }
+];
+
+// بيانات النصائح الطبية (جديد)
+const healthTips = [
+    {
+        id: 1,
+        icon: "❤️",
+        category: "صحة القلب",
+        title: "كيف تحافظ على ضغط دم صحي؟",
+        excerpt: "تقليل الملح، ممارسة الرياضة بانتظام، وتناول الخضروات والفواكه الطازجة يومياً يساعد في الحفاظ على ضغط دم طبيعي.",
+        fullText: "للحفاظ على ضغط دم صحي: قلل من تناول الملح (أقل من 5 جرام يومياً)، مارس الرياضة 30 دقيقة يومياً، تناول الخضروات والفواكه، تجنب التدخين، وحافظ على وزن صحي."
+    },
+    {
+        id: 2,
+        icon: "",
+        category: "صحة الأطفال",
+        title: "متى يجب زيارة طبيب الأطفال؟",
+        excerpt: "الزيارات الدورية مهمة لمتابعة نمو الطفل. يجب زيارة الطبيب عند ارتفاع الحرارة أو أي أعراض غير طبيعية.",
+        fullText: "يجب زيارة طبيب الأطفال بشكل دوري كل 3-6 أشهر في السنة الأولى، ثم سنوياً. زر الطبيب فوراً عند: ارتفاع الحرارة، صعوبة التنفس، رفض الطعام، أو أي تغيير مفاجئ في سلوك الطفل."
+    },
+    {
+        id: 3,
+        icon: "🚨",
+        category: "طوارئ",
+        title: "أعراض تستدعي الذهاب للطوارئ",
+        excerpt: "ألم الصدر الشديد، صعوبة التنفس، النزيف الحاد، وفقدان الوعي من الأعراض التي تستدعي التوجه فوراً للطوارئ.",
+        fullText: "توجه فوراً للطوارئ عند: ألم شديد في الصدر، صعوبة حادة في التنفس، نزيف لا يتوقف، فقدان الوعي، حروق شديدة، كسور مفتوحة، أو أي إصابة خطيرة في الرأس."
+    },
+    {
+        id: 4,
+        icon: "🩺",
+        category: "فحوصات",
+        title: "أهمية الفحوصات الدورية",
+        excerpt: "الفحوصات الدورية تساعد في الكشف المبكر عن الأمراض وزيادة فرص العلاج الناجح بنسبة تصل إلى 90%.",
+        fullText: "الفحوصات الدورية مهمة جداً للكشف المبكر عن: السكري، ارتفاع ضغط الدم، أمراض القلب، والسرطان. يُنصح بإجراء فحص شامل سنوياً خاصة بعد سن الـ 40."
+    },
+    {
+        id: 5,
+        icon: "🦷",
+        category: "صحة الأسنان",
+        title: "نصائح للحفاظ على أسنان صحية",
+        excerpt: "اغسل أسنانك مرتين يومياً، استخدم الخيط الطبي، وتجنب السكريات للحفاظ على أسنان قوية وصحية.",
+        fullText: "للحفاظ على أسنان صحية: اغسل أسنانك مرتين يومياً بمعجون يحتوي على الفلورايد، استخدم خيط الأسنان يومياً، قلل من السكريات، وزر طبيب الأسنان كل 6 أشهر."
+    },
+    {
+        id: 6,
+        icon: "🧠",
+        category: "الصحة النفسية",
+        title: "كيف تحافظ على صحتك النفسية؟",
+        excerpt: "النوم الكافي، ممارسة الرياضة، والتواصل الاجتماعي الجيد أساسيات للحفاظ على صحة نفسية متوازنة.",
+        fullText: "للحفاظ على صحتك النفسية: نم 7-8 ساعات يومياً، مارس الرياضة بانتظام، حافظ على علاقات اجتماعية إيجابية، تعلم تقنيات الاسترخاء، ولا تتردد في طلب المساعدة المتخصصة عند الحاجة."
+    }
 ];
 
 const featuredDoctors = [
     { name: "د/ أمير أنور", specialty: "استشاري القلب والأوعية الدموية", bio: "خبرة تزيد عن 15 عاماً في تشخيص وعلاج أمراض القلب والقسطرة العلاجية.", schedule: " السبت والاثنين: 10:00 ص - 2:00 م", image: "https://img.freepik.com/free-photo/portrait-smiling-handsome-male-doctor-man_171337-5055.jpg" },
     { name: "د/ فادي فضل", specialty: "استشاري الجهاز الهضمي والكبد", bio: "متخصص في مناظير الجهاز الهضمي وعلاج أمراض الكبد المزمنة بأحدث التقنيات.", schedule: "🕐 الأحد والثلاثاء: 3:00 م - 7:00 م", image: "https://img.freepik.com/free-photo/pleased-young-female-doctor-wearing-medical-robe-stethoscope-around-neck-standing-closed-posture_409827-254.jpg" },
     { name: "د/ مرقس صفوت", specialty: "استشاري النساء والتوليد", bio: "متابعة الحمل والولادة الآمنة، وعلاج مشاكل العقم وتأخر الإنجاب برعاية فائقة.", schedule: "🕐 يومياً: 6:00 م - 9:00 م", image: "https://img.freepik.com/free-photo/smiling-doctor-with-strethoscope-isolated-grey_651396-974.jpg" },
-    { name: "د/ جيهان عدلي", specialty: "استشاري طب الأطفال وحديثي الولادة", bio: "رعاية شاملة لصحة طفلك، من المتابعة الدورية للتطعيمات وعلاج أمراض الأطفال.", schedule: "🕐 السبت والأربعاء: 10:00 ص - 2:00 م", image: "https://img.freepik.com/free-photo/medium-shot-scientist-with-crossed-arms_23-2148821202.jpg" }
+    { name: "د/ جيهان عدلي", specialty: "استشاري طب الأطفال وحديثي الولادة", bio: "رعاية شاملة لصحة طفلك، من المتابعة الدورية للتطعيمات وعلاج أمراض الأطفال.", schedule: " السبت والأربعاء: 10:00 ص - 2:00 م", image: "https://img.freepik.com/free-photo/medium-shot-scientist-with-crossed-arms_23-2148821202.jpg" }
 ];
 
 const defaultReviews = [
@@ -136,7 +188,7 @@ if (savedReviews) {
 }
 
 function bookViaWhatsApp(doctorName, departmentName) {
-    const message = `السلام عليكم 🙏\nأريد الاستفسار وحجز موعد مع:\n👨‍️ ${doctorName}\n🏥 قسم: ${departmentName}\n\nمستشفى مارمينا - طاحونة البابا كيرلس`;
+    const message = `السلام عليكم 🙏\nأريد الاستفسار وحجز موعد مع:\n👨⚕️ ${doctorName}\n قسم: ${departmentName}\n\nمستشفى مارمينا - طاحونة البابا كيرلس`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
@@ -153,7 +205,7 @@ function renderDepartmentsCards() {
                 <h3 class="department-name">${dept.name}</h3>
                 <p class="department-description">${dept.description}</p>
                 <div class="department-link">
-                    <span>📅</span>
+                    <span></span>
                     <span>عرض المواعيد</span>
                 </div>
             </div>
@@ -170,6 +222,35 @@ function showDepartmentSchedule(category) {
         scheduleSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         setTimeout(() => { showDoctorsByCategory(category); }, 300);
     }, 100);
+}
+
+// عرض النصائح الطبية (جديد)
+function renderHealthTips() {
+    const container = document.getElementById('health-tips-grid');
+    if (!container) return;
+    let htmlContent = "";
+    healthTips.forEach((tip, index) => {
+        htmlContent += `
+            <div class="health-tip-card" onclick="showHealthTipDetail(${tip.id})" style="animation: fadeInUp 0.6s ease ${index * 0.1}s both;">
+                <span class="health-tip-icon">${tip.icon}</span>
+                <span class="health-tip-category">${tip.category}</span>
+                <h3 class="health-tip-title">${tip.title}</h3>
+                <p class="health-tip-excerpt">${tip.excerpt}</p>
+                <div class="health-tip-read-more">
+                    <span>اقرأ المزيد</span>
+                    <span>←</span>
+                </div>
+            </div>
+        `;
+    });
+    container.innerHTML = htmlContent;
+}
+
+function showHealthTipDetail(tipId) {
+    const tip = healthTips.find(t => t.id === tipId);
+    if (tip) {
+        alert(`${tip.title}\n\n${tip.fullText}`);
+    }
 }
 
 function renderFeaturedDoctors() {
@@ -224,7 +305,7 @@ function showDoctorsByCategory(category) {
 
     categoriesView.style.display = 'none';
     doctorsView.style.display = 'block';
-    currentCategoryTitle.textContent = ` ${category}`;
+    currentCategoryTitle.textContent = `🏥 ${category}`;
 
     const filteredDepts = departments.filter(dept => dept.category === category);
     let htmlContent = "";
@@ -256,7 +337,7 @@ function showDoctorsByCategory(category) {
                             </button>
                         ` : ''}
                     </div>
-                    ${dep.note ? `<div class="doc-note"> ${dep.note}</div>` : ''}
+                    ${dep.note ? `<div class="doc-note">📝 ${dep.note}</div>` : ''}
                 </div>
             `;
         });
@@ -435,6 +516,7 @@ document.addEventListener('DOMContentLoaded', () => {
     displayCurrentDate();
     renderFeaturedDoctors();
     renderDepartmentsCards();
+    renderHealthTips(); // تشغيل قسم النصائح الطبية الجديد
     setupReviewFilters();
     setupFAQ();
     setupMobileMenu();
