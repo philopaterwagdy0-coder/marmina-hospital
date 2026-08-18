@@ -370,13 +370,18 @@ body {
 
 .service-item {
     background: var(--white);
-    padding: 1.5rem;
+    padding: 1.5rem 1rem;
     border-radius: 15px;
     box-shadow: var(--shadow);
     transition: 0.3s;
     text-align: center;
     animation: scaleIn 0.5s ease;
     animation-fill-mode: both;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .service-item:nth-child(1) { animation-delay: 0.1s; }
@@ -401,6 +406,7 @@ body {
     color: var(--primary-blue);
     margin-bottom: 0.5rem;
     font-size: 1rem;
+    font-weight: 700;
 }
 
 .service-item p {
@@ -828,13 +834,29 @@ body {
     box-shadow: 0 8px 25px rgba(26, 95, 122, 0.4);
 }
 
+/* التقييمات - مخفية افتراضياً */
 .reviews-grid {
-    display: grid;
+    display: none;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 2rem;
     max-width: 1400px;
-    margin: 0 auto 3rem;
+    margin: 2rem auto 3rem;
 }
+
+.reviews-grid.show {
+    display: grid;
+}
+
+.reviews-grid.show .review-card {
+    animation: fadeInUp 0.6s ease;
+    animation-fill-mode: both;
+}
+
+.reviews-grid.show .review-card:nth-child(1) { animation-delay: 0.1s; }
+.reviews-grid.show .review-card:nth-child(2) { animation-delay: 0.15s; }
+.reviews-grid.show .review-card:nth-child(3) { animation-delay: 0.2s; }
+.reviews-grid.show .review-card:nth-child(4) { animation-delay: 0.25s; }
+.reviews-grid.show .review-card:nth-child(5) { animation-delay: 0.3s; }
 
 .review-card {
     background: var(--white);
@@ -844,15 +866,7 @@ body {
     transition: all 0.4s ease;
     border: 2px solid transparent;
     position: relative;
-    animation: fadeInUp 0.6s ease;
-    animation-fill-mode: both;
 }
-
-.reviews-grid .review-card:nth-child(1) { animation-delay: 0.1s; }
-.reviews-grid .review-card:nth-child(2) { animation-delay: 0.15s; }
-.reviews-grid .review-card:nth-child(3) { animation-delay: 0.2s; }
-.reviews-grid .review-card:nth-child(4) { animation-delay: 0.25s; }
-.reviews-grid .review-card:nth-child(5) { animation-delay: 0.3s; }
 
 .review-card:hover {
     transform: translateY(-10px);
@@ -1139,7 +1153,7 @@ footer {
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     }
     
-    .reviews-grid {
+    .reviews-grid.show {
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
 }
@@ -1223,7 +1237,8 @@ footer {
     }
     
     .service-item {
-        padding: 1rem;
+        padding: 1.2rem 0.8rem;
+        min-height: 160px;
     }
     
     .service-icon {
@@ -1272,7 +1287,7 @@ footer {
         font-size: 0.8rem;
     }
     
-    .reviews-grid {
+    .reviews-grid.show {
         grid-template-columns: 1fr;
     }
     
@@ -1366,7 +1381,8 @@ footer {
     }
     
     .service-item {
-        padding: 0.8rem;
+        padding: 1rem 0.6rem;
+        min-height: 150px;
     }
     
     .service-icon {
